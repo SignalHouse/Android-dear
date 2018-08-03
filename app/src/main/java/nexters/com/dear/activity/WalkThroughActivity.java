@@ -1,13 +1,15 @@
-package nexters.com.dear;
+package nexters.com.dear.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import nexters.com.dear.R;
+
+public class WalkThroughActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_walk_through);
     }
 }
