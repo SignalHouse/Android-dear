@@ -50,7 +50,6 @@ public class WalkThroughAdapter extends PagerAdapter {
         txtDes.setText(infoArrayList.get(position).getDescription());
         txtPageNum.setText(infoArrayList.get(position).getPage());
 
-        Log.d("INSTANTIATE: ", position + ".");
 
         container.addView(view);
         return view;

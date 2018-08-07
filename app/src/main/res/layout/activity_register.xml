@@ -4,6 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e2e3e5"
     tools:context=".activity.RegisterActivity">
+
+    <EditText
+        android:id="@+id/register_edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="이메일을 입력해주세요."
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="#ffffff"
+        android:paddingLeft="15dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".4"
+        />
+
+    <EditText
+        android:id="@+id/register_edit_pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:hint="비밀번호를 입력해주세요."
+        android:textSize="14dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_edit_email"
+        app:layout_constraintVertical_bias="0" />
+
+    <EditText
+        android:id="@+id/register_edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:hint="닉네임을 입력해주세요."
+        android:textSize="14dp"
+        android:paddingLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_edit_pw"
+        app:layout_constraintVertical_bias="0" />
+
+    <Button
+        android:id="@+id/register_btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="#302f37"
+        android:textColor="#ffffff"
+        android:text="Sign In"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_edit_name"
+        app:layout_constraintVertical_bias=".4"
+        />
 
 </android.support.constraint.ConstraintLayout>
