@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".4"
+        app:layout_constraintVertical_bias="0.3"
         />
 
     <EditText
@@ -67,11 +67,12 @@
         android:background="#302f37"
         android:textColor="#ffffff"
         android:text="Sign In"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_edit_name"
-        app:layout_constraintVertical_bias=".4"
+        app:layout_constraintVertical_bias="0"
         />
 
 </android.support.constraint.ConstraintLayout>
