@@ -34,6 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:background="#302f37"
+        android:textColor="#ffffff"
+        android:textSize="21dp"
         android:text="SKIP"
         />
 </RelativeLayout>
