@@ -102,11 +102,12 @@
                 ></GridView>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/main_fab"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="25dp" />
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="25dp"
+        android:clickable="true"
+        />
 </android.support.design.widget.CoordinatorLayout>
