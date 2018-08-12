@@ -10,7 +10,7 @@
         android:id="@+id/template_letter_opened_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#cfcfcf" />
+        android:background="#ffffff" />
 
     <TextView
         android:id="@+id/template_letter_title"
@@ -47,12 +47,13 @@
         />
 
     <TextView
+        android:id="@+id/template_letter_sender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Someone"
         android:textColor="#333333"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/template_letter_dcrp_by"

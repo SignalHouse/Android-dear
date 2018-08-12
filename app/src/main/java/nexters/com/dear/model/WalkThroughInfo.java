@@ -3,8 +3,8 @@ package nexters.com.dear.model;
 import android.graphics.drawable.Drawable;
 
 public class WalkThroughInfo {
-    String description, page;
-    Drawable res;
+    private String description, page;
+    private Drawable res;
 
     public WalkThroughInfo() {
     }
