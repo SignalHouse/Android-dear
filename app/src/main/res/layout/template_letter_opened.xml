@@ -7,7 +7,7 @@
     >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/template_letter_opened_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#cfcfcf" />
