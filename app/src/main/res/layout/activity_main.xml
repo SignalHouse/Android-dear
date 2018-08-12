@@ -86,7 +86,7 @@
                 android:layout_marginTop="30dp"
                 />
 
-            <GridView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
                 android:background="#ffffff"
@@ -99,7 +99,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="17dp"
                 android:layout_marginRight="17dp"
-                ></GridView>
+                ></android.support.v7.widget.RecyclerView>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
     <android.support.design.widget.FloatingActionButton
