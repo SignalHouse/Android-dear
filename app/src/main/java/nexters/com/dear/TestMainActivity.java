@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import nexters.com.dear.activity.LoginActivity;
 import nexters.com.dear.activity.LostActivity;
 import nexters.com.dear.activity.MainActivity;
+import nexters.com.dear.activity.MessageBoxActivity;
 import nexters.com.dear.activity.MyPageActivity;
 import nexters.com.dear.activity.RegisterActivity;
 import nexters.com.dear.activity.SplashActivity;
@@ -33,6 +34,7 @@ public class TestMainActivity extends AppCompatActivity {
         listActivities.add(SplashActivity.class);
         listActivities.add(WalkThroughActivity.class);
         listActivities.add(MyPageActivity.class);
+        listActivities.add(MessageBoxActivity.class);
 
         ListView lv = findViewById(R.id.test_main_listview);
         ArrayAdapter<Class> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listActivities);

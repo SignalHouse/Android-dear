@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setLetterView(){
-
         //randomly generate dummy items
         for (int i  = 0; i < 100; i++) {
             LetterItem letter = new LetterItem("Title" + i, "Someone" + i);
