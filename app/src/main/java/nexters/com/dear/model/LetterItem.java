@@ -1,10 +1,12 @@
 package nexters.com.dear.model;
 
+import java.util.Date;
+
 public class LetterItem {
     private String title, sender;
     private boolean isNew;
     private int letterID;
-
+    private Date date;
     public LetterItem(){
 
     }
@@ -44,5 +46,13 @@ public class LetterItem {
 
     public void setLetterID(int letterID) {
         this.letterID = letterID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
