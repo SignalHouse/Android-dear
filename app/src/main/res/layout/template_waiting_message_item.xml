@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/template_waiting_txt_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="도은이가 케이크"
         android:textSize="17dp"
@@ -20,6 +20,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="@dimen/margin_side"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/template_waiting_btn_edit"
         />
 
     <TextView
@@ -37,6 +39,7 @@
         android:id="@+id/template_waiting_btn_edit"
         android:layout_width="16dp"
         android:layout_height="16dp"
+
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="#000000"
