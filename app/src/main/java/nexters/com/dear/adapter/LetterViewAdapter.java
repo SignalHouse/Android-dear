@@ -31,8 +31,8 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
 
     @Override
     public void onBindViewHolder(@NonNull letterViewHolder holder, int position) {
-        holder.txtSender.setText(letterItems.get(position).getTitle());
-        holder.txtTitle.setText(letterItems.get(position).getSender());
+        holder.txtSender.setText(letterItems.get(position).getSender());
+        holder.txtTitle.setText(letterItems.get(position).getTitle());
         if (letterItems.get(position).isNew()) {
             holder.openedLetter.setVisibility(View.VISIBLE);
             holder.notopenedLetter.setVisibility(View.GONE);
