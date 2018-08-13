@@ -13,7 +13,8 @@ import nexters.com.dear.model.WalkThroughInfo;
 
 public class WalkThroughActivity extends AppCompatActivity {
     final String WALKTHROUGH_DESCRIPTION[] =
-            {"Dear에서 하루 세번, 익명의 누군가에게 편지를 통해 속마음을 털어놓을 수 있습니다.",
+            {
+                    "Dear에서 하루 세번, 익명의 누군가에게 편지를 통해 속마음을 털어놓을 수 있습니다.",
                     "작성한 편지는 밤 10시에 발송되며, 대화상대는 10명으로 제한됩니다.",
                     "과거에 편지와 문자를 받기위해 기다리던 소중한 시간을 기억하며 진심어린 편지를 나눠보세요."};
     ViewPager viewPager;
