@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+   <include
+       android:id="@+id/template_message_layout_contents"
+       layout="@layout/template_message_item_contents"/>
+    <include
+        android:id="@+id/template_message_layout_date"
+        layout="@layout/template_message_item_date"
+        android:visibility="gone"/>
+</android.support.constraint.ConstraintLayout>
