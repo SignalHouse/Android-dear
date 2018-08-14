@@ -6,6 +6,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setLetterView(){
+        Date curDate = Calendar.getInstance().getTime();
         //randomly generate dummy items
         for (int i  = 0; i < 100; i++) {
-            LetterItem letter = new LetterItem("Title" + i, "Someone" + i);
+            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate);
             if (i % 5 == 0) letter.setNew(false);
             letterItems.add(letter);
         }

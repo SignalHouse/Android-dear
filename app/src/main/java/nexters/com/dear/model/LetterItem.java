@@ -10,9 +10,10 @@ public class LetterItem {
     public LetterItem(){
 
     }
-    public LetterItem(String title, String sender) {
+    public LetterItem(String title, String sender, Date date) {
         this.title = title;
         this.sender = sender;
+        this.date = date;
         isNew = true;
     }
 

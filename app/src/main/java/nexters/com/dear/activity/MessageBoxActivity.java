@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,9 +32,10 @@ public class MessageBoxActivity extends AppCompatActivity {
     }
 
     private void setWaitingView(){
+        Date curDate = Calendar.getInstance().getTime();
         //dummy data
         for (int i = 0; i < 100; i++){
-            LetterItem letter = new LetterItem("Title" + i, "Someone" + i);
+            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate);
             letter.setDate(Calendar.getInstance().getTime());
             letterItems.add(letter);
         }
