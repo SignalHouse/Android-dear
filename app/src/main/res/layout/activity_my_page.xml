@@ -43,7 +43,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
-        android:background="#302f37"
+        android:background="@color/buttonColor"
         android:text="Logout"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

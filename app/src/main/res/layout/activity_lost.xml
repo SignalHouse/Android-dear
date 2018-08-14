@@ -72,7 +72,7 @@
         android:id="@+id/lost_btn_send"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#302f37"
+        android:background="@color/buttonColor"
         android:textColor="#ffffff"
         android:text="Send"
         android:layout_marginTop="25dp"

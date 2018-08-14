@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity"
-    android:background="#e2e3e5">
+    tools:context=".activity.LoginActivity">
 
     <ImageView
         android:id="@+id/login_image"
@@ -75,7 +74,7 @@
         android:id="@+id/login_btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#302f37"
+        android:background="@color/buttonColor"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="Sign in"
