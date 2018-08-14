@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.splashRelative);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.splashRelative);
         //layout.setBackgroundDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.splash)));
 
         Handler handler = new Handler();
@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        recycleView(findViewById(R.id.splashRelative));
+//        recycleView(findViewById(R.id.splashRelative));
         System.gc();
     }
 

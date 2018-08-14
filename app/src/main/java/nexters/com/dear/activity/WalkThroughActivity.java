@@ -17,6 +17,7 @@ public class WalkThroughActivity extends AppCompatActivity {
                     "Dear에서 하루 세번, 익명의 누군가에게 편지를 통해 속마음을 털어놓을 수 있습니다.",
                     "작성한 편지는 밤 10시에 발송되며, 대화상대는 10명으로 제한됩니다.",
                     "과거에 편지와 문자를 받기위해 기다리던 소중한 시간을 기억하며 진심어린 편지를 나눠보세요."};
+    final String walkthru_img = "img_walkthru_";
     ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +25,14 @@ public class WalkThroughActivity extends AppCompatActivity {
         setContentView(R.layout.activity_walk_through);
 
         ArrayList<WalkThroughInfo> infoList = new ArrayList<>();
+
         for (int i = 0; i < WALKTHROUGH_DESCRIPTION.length; i++){
             WalkThroughInfo info = new WalkThroughInfo();
             info.setDescription(WALKTHROUGH_DESCRIPTION[i]);
             info.setPage("0" + (i + 1));
-            info.setRes(null);
+
+            //find drawable and save resid
+            info.setResid(getApplicationContext().getResources().getIdentifier(walkthru_img + (i + 1), "drawable", getApplicationContext().getPackageName()));
             infoList.add(info);
         }
 

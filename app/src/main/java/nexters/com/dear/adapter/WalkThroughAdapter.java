@@ -42,8 +42,10 @@ public class WalkThroughAdapter extends PagerAdapter {
         View view = null;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         view = layoutInflater.inflate(R.layout.template_walk_through, container, false);
-        //ImageView imageView = view.findViewById(R.id.template_walk_thru_image);
-        //imageView.setImageDrawable(infoArrayList.get(position).getRes());
+        ImageView imageView = view.findViewById(R.id.template_walk_thru_image);
+        imageView.setImageResource(infoArrayList.get(position).getResid());
+
+
         TextView txtPageNum = view.findViewById(R.id.template_walk_thru_page_number);
         TextView txtDes = view.findViewById(R.id.template_walk_thru_description);
 

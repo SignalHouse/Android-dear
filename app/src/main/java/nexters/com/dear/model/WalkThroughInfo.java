@@ -4,15 +4,15 @@ import android.graphics.drawable.Drawable;
 
 public class WalkThroughInfo {
     private String description, page;
-    private Drawable res;
+    private int resid;
 
     public WalkThroughInfo() {
     }
 
-    public WalkThroughInfo(String description, String page, Drawable res) {
+    public WalkThroughInfo(String description, String page, int res) {
         this.description = description;
         this.page = page;
-        this.res = res;
+        this.resid = res;
     }
     public String getDescription() {
         return description;
@@ -30,11 +30,11 @@ public class WalkThroughInfo {
         this.page = page;
     }
 
-    public Drawable getRes() {
-        return res;
+    public int getResid() {
+        return resid;
     }
 
-    public void setRes(Drawable res) {
-        this.res = res;
+    public void setResid(int resid) {
+        this.resid = resid;
     }
 }

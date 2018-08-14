@@ -2,4 +2,5 @@
     <string name="app_name">Dear</string>
     <string name="title_activity_walk_through">WalkThroughActivity</string>
     <string name="server_url">192.168.219.131:8000</string>
+    <string name="find_pw_underlined"><u>비밀번호 찾기</u></string>
 </resources>
