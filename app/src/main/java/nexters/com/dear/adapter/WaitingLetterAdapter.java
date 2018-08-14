@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nexters.com.dear.R;
 import nexters.com.dear.model.LetterItem;
+import nexters.com.dear.util.TimeUtil;
 
 public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdapter.waitingViewHolder> {
     ArrayList<LetterItem> letterItems;
@@ -33,11 +34,8 @@ public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdap
 
     @Override
     public void onBindViewHolder(@NonNull waitingViewHolder holder, int position) {
-        Date writtenTime =  letterItems.get(position).getDate();
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-        String date = formatter.format(writtenTime);
 
-        holder.txtTime.setText(date);
+        holder.txtTime.setText(TimeUtil.getDateInString(letterItems.get(position).getDate(), "HH:mm"));
         holder.txtTitle.setText(letterItems.get(position).getTitle());
 
     }

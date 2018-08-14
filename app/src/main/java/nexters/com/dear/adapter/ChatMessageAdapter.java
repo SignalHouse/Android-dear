@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nexters.com.dear.R;
 import nexters.com.dear.model.ChatMessage;
+import nexters.com.dear.util.TimeUtil;
 
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.chatViewHolder > {
     ArrayList<ChatMessage> chatMessages;
@@ -34,15 +35,11 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull chatViewHolder  holder, int position) {
-        SimpleDateFormat formatter;
         if (chatMessages.get(position).getDateDivider()) { //show date divider
             holder.viewDate.setVisibility(View.VISIBLE);
             holder.viewContents.setVisibility(View.GONE);
 
-            Date divDate = chatMessages.get(position).getDate();
-            formatter = new SimpleDateFormat("yyyy MMMM dd", Locale.ENGLISH);
-            String date = formatter.format(divDate);
-            holder.txtDateDivider.setText(date);
+            holder.txtDateDivider.setText(TimeUtil.getDateInString(chatMessages.get(position).getDate(), "yyyy MMMM dd"));
         }
         else {
             holder.viewContents.setVisibility(View.VISIBLE);
@@ -51,10 +48,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
             holder.txtContents.setText(chatMessages.get(position).getContents());
             holder.txtName.setText(chatMessages.get(position).getName());
 
-            Date sentTime = chatMessages.get(position).getDate();
-            formatter = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
-            String date = formatter.format(sentTime);
-            holder.txtTime.setText(date);
+            holder.txtTime.setText(TimeUtil.getDateInString(chatMessages.get(position).getDate(), "hh:mm a"));
 
             if (chatMessages.get(position).getAlignment() == ChatMessage.ALIGNMENT_LEFT){
                 holder.txtContents.setGravity(Gravity.LEFT);
