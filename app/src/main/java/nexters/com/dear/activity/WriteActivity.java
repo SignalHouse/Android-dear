@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,8 +62,8 @@ public class WriteActivity extends AppCompatActivity {
         cal.set(Calendar.MINUTE, DearApp.getAppInstance().getSEND_MIN());
         cal.set(Calendar.SECOND, DearApp.getAppInstance().getSEND_SEC());
 
-        if (curTime.before(cal.getTime())){ //if before the time
-
+        if (!curTime.before(cal.getTime())){ //if before the time
+            cal.add(Calendar.DATE, 1);
         }
         DateCountDownTimer timer = new DateCountDownTimer(cal.getTimeInMillis() - curTime.getTime(), DateCountDownTimer.TIME_INTERVAL);
         timer.setType(DateCountDownTimer.TYPE_HHMMSS);
