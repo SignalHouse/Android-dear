@@ -2,6 +2,7 @@ package nexters.com.dear.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,9 +40,9 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
             holder.viewContents.setVisibility(View.GONE);
 
             Date divDate = chatMessages.get(position).getDate();
-            formatter = new SimpleDateFormat("yyyy MMMM dd");
+            formatter = new SimpleDateFormat("yyyy MMMM dd", Locale.ENGLISH);
             String date = formatter.format(divDate);
-            holder.txtDateDivder.setText(date);
+            holder.txtDateDivider.setText(date);
         }
         else {
             holder.viewContents.setVisibility(View.VISIBLE);
@@ -50,9 +52,20 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
             holder.txtName.setText(chatMessages.get(position).getName());
 
             Date sentTime = chatMessages.get(position).getDate();
-            formatter = new SimpleDateFormat("hh:mm a");
+            formatter = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
             String date = formatter.format(sentTime);
             holder.txtTime.setText(date);
+
+            if (chatMessages.get(position).getAlignment() == ChatMessage.ALIGNMENT_LEFT){
+                holder.txtContents.setGravity(Gravity.LEFT);
+                holder.txtName.setGravity(Gravity.LEFT);
+                holder.txtTime.setGravity(Gravity.LEFT);
+            }
+            else if (chatMessages.get(position).getAlignment() == ChatMessage.ALIGNMENT_RIGHT){
+                holder.txtContents.setGravity(Gravity.RIGHT);
+                holder.txtName.setGravity(Gravity.RIGHT);
+                holder.txtTime.setGravity(Gravity.RIGHT);
+            }
         }
     }
 
@@ -67,7 +80,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
         @BindView(R.id.template_message_layout_date)
         View viewDate;
         @BindView(R.id.template_message_date)
-        TextView txtDateDivder;
+        TextView txtDateDivider;
         @BindView(R.id.template_message_contents)
         TextView txtContents;
         @BindView(R.id.template_message_time)
