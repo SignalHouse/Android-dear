@@ -34,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         btnToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
@@ -43,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent (LoginActivity.this, LostActivity.class);
                 startActivity(i);
-                finish();
+
             }
         });
 
@@ -52,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent (LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
-                finish();
+
             }
         });
     }

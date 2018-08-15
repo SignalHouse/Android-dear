@@ -44,6 +44,11 @@ public class MyPageActivity extends AppCompatActivity {
     }
     @OnClick(R.id.tool_bar_base_go_back)
     void onGoBackClicked(){
-        Toast.makeText(getApplicationContext(), "Goback clicked", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @OnClick(R.id.tool_bar_base_btn)
+    void onConfirmClicked(){
+        finish();
     }
 }

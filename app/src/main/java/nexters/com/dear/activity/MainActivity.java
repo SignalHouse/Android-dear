@@ -1,5 +1,7 @@
 package nexters.com.dear.activity;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnSetting;
     @BindView(R.id.tool_bar_main)
     Toolbar toolbar;
+    @BindView(R.id.main_fab)
+    FloatingActionButton fab;
 
     private LetterViewAdapter letterAdapter;
     private ArrayList<LetterItem> letterItems = new ArrayList<>();
@@ -91,11 +95,18 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.tool_bar_main_setting)
     void onSettingClicked(){
-        Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(MainActivity.this, MyPageActivity.class);
+        startActivity(i);
     }
 
     @OnClick(R.id.tool_bar_main_logo)
     void onLogoClicked(){
         Toast.makeText(getApplicationContext(), "Logo clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.main_fab)
+    void onFabClicked(){
+        Intent i = new Intent(MainActivity.this, WriteActivity.class);
+        startActivity(i);
     }
 }
