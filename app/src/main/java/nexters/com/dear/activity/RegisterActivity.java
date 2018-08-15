@@ -1,5 +1,6 @@
 package nexters.com.dear.activity;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -64,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
                 nickname = inputNickname.getText().toString();
                 password = inputPassword.getText().toString();
 
-                new registDB().execute("http://192.168.43.31:8000/api/user");
+                new registDB().execute(getString(R.string.auth_server_url)+"/api/user");
             }
         });
 
@@ -135,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
                         buffer.append(line);
 
                     }
-
+                    setToken(buffer.toString());
                     return buffer.toString();
 
                 } catch (MalformedURLException e){
@@ -164,5 +166,17 @@ public class RegisterActivity extends AppCompatActivity {
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+    }
+
+    public void setToken(String token) {
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("token", token);
+        editor.commit();
     }
 }

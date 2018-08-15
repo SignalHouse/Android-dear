@@ -11,6 +11,7 @@
         android:id="@+id/register_tool_bar"
         layout="@layout/tool_bar_base"
         />
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -22,6 +23,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:background="#ffffff"
+        android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +41,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="8dp"
         android:background="#ffffff"
+        android:inputType="textPassword"
         android:hint="비밀번호를 입력해주세요."
         android:textSize="14dp"
         android:paddingLeft="15dp"
