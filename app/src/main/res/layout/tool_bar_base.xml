@@ -5,11 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:contentInsetLeft="0dp"
     app:contentInsetStart="0dp"
-    android:elevation="1dp">
+    android:background="#e1e9ee"
+    android:elevation="2dp"
+    >
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/tool_bar_base_go_back"

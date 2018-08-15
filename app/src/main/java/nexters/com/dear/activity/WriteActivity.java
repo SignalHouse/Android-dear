@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +17,7 @@ import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
 import nexters.com.dear.adapter.WaitingLetterAdapter;
 import nexters.com.dear.app.DearApp;
@@ -29,6 +33,16 @@ public class WriteActivity extends AppCompatActivity {
     TextView txtWaitings;
     @BindView(R.id.write_txt_remaining_letters)
     TextView txtRemainings;
+//    @BindView(R.id.mypage_toolbar)
+//    Toolbar toolbar;
+//    @BindView(R.id.tool_bar_base_btn)
+//    ImageView btnBase;
+//    @BindView(R.id.tool_bar_base_go_back)
+//    ImageView btnGoback;
+//    @BindView(R.id.tool_bar_base_title)
+//    TextView txtTitle;
+//    @BindView(R.id.tool_bar_base_txt)
+//    TextView txtComplete;
 
     ArrayList<LetterItem> letterItems;
     WaitingLetterAdapter waitAdapter;
@@ -40,6 +54,7 @@ public class WriteActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setWaitingLetters();
         setTimer();
+//        setToolbar();
     }
 
     private void setWaitingLetters(){
@@ -69,6 +84,17 @@ public class WriteActivity extends AppCompatActivity {
         timer.setType(DateCountDownTimer.TYPE_HHMMSS);
         timer.setTxtView(txtTimer);
         timer.start();
-
     }
+
+//    private void setToolbar(){
+//        setSupportActionBar(toolbar);
+//        txtTitle.setText("Write");
+//        txtComplete.setVisibility(View.GONE);
+//        btnBase.setVisibility(View.VISIBLE);
+//    }
+//
+//    @OnClick(R.id.tool_bar_base_go_back)
+//    void onGoBackClicked(){
+//        finish();
+//    }
 }

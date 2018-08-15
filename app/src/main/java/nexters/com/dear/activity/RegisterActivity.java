@@ -3,10 +3,13 @@ package nexters.com.dear.activity;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.json.JSONObject;
 
@@ -21,9 +24,23 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
 
 public class RegisterActivity extends AppCompatActivity {
+    @BindView(R.id.register_tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.tool_bar_base_btn)
+    ImageView btnBase;
+    @BindView(R.id.tool_bar_base_go_back)
+    ImageView btnGoback;
+    @BindView(R.id.tool_bar_base_title)
+    TextView txtTitle;
+    @BindView(R.id.tool_bar_base_txt)
+    TextView txtComplete;
+
 
     EditText inputEmail, inputNickname, inputPassword;
     String email, nickname, password;
@@ -34,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        ButterKnife.bind(this);
         inputEmail = (EditText) findViewById(R.id.register_edit_email);
         inputNickname = (EditText) findViewById(R.id.register_edit_name);
         inputPassword = (EditText) findViewById(R.id.register_edit_pw);
@@ -49,6 +67,20 @@ public class RegisterActivity extends AppCompatActivity {
                 new registDB().execute("http://192.168.43.31:8000/api/user");
             }
         });
+
+        setToolbar();
+    }
+
+    private void setToolbar(){
+        setSupportActionBar(toolbar);
+        txtTitle.setText("Sign Up");
+        txtComplete.setVisibility(View.GONE);
+        btnBase.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.tool_bar_base_go_back)
+    void onGoBackClicked(){
+        finish();
     }
 
     public class registDB extends AsyncTask<String, String, String> {

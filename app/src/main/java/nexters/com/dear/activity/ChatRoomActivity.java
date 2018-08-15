@@ -4,12 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
 import nexters.com.dear.adapter.ChatMessageAdapter;
 import nexters.com.dear.model.ChatMessage;
@@ -18,6 +23,16 @@ import nexters.com.dear.util.ChatArrayList;
 public class ChatRoomActivity extends AppCompatActivity {
     @BindView(R.id.chat_recycler_view)
     RecyclerView mRecyclerView;
+    @BindView(R.id.chat_tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.tool_bar_base_btn)
+    ImageView btnBase;
+    @BindView(R.id.tool_bar_base_go_back)
+    ImageView btnGoback;
+    @BindView(R.id.tool_bar_base_title)
+    TextView txtTitle;
+    @BindView(R.id.tool_bar_base_txt)
+    TextView txtComplete;
 
     ChatArrayList chatMessages;
     private ChatMessageAdapter chatMessageAdapter;
@@ -29,6 +44,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setChatView();
+        setToolbar();
     }
 
     private void setChatView(){
@@ -64,5 +80,17 @@ public class ChatRoomActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(chatMessageAdapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void setToolbar(){
+        setSupportActionBar(toolbar);
+        txtTitle.setText("닉네임");
+        txtComplete.setVisibility(View.GONE);
+        btnBase.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.tool_bar_base_go_back)
+    void onGoBackClicked(){
+        finish();
     }
 }
