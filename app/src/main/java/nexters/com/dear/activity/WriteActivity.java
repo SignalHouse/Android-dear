@@ -33,16 +33,16 @@ public class WriteActivity extends AppCompatActivity {
     TextView txtWaitings;
     @BindView(R.id.write_txt_remaining_letters)
     TextView txtRemainings;
-//    @BindView(R.id.mypage_toolbar)
-//    Toolbar toolbar;
-//    @BindView(R.id.tool_bar_base_btn)
-//    ImageView btnBase;
-//    @BindView(R.id.tool_bar_base_go_back)
-//    ImageView btnGoback;
-//    @BindView(R.id.tool_bar_base_title)
-//    TextView txtTitle;
-//    @BindView(R.id.tool_bar_base_txt)
-//    TextView txtComplete;
+    @BindView(R.id.write_tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.tool_bar_base_btn)
+    ImageView btnBase;
+    @BindView(R.id.tool_bar_base_go_back)
+    ImageView btnGoback;
+    @BindView(R.id.tool_bar_base_title)
+    TextView txtTitle;
+    @BindView(R.id.tool_bar_base_txt)
+    TextView txtComplete;
 
     ArrayList<LetterItem> letterItems;
     WaitingLetterAdapter waitAdapter;
@@ -54,7 +54,7 @@ public class WriteActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setWaitingLetters();
         setTimer();
-//        setToolbar();
+        setToolbar();
     }
 
     private void setWaitingLetters(){
@@ -86,15 +86,15 @@ public class WriteActivity extends AppCompatActivity {
         timer.start();
     }
 
-//    private void setToolbar(){
-//        setSupportActionBar(toolbar);
-//        txtTitle.setText("Write");
-//        txtComplete.setVisibility(View.GONE);
-//        btnBase.setVisibility(View.VISIBLE);
-//    }
-//
-//    @OnClick(R.id.tool_bar_base_go_back)
-//    void onGoBackClicked(){
-//        finish();
-//    }
+    private void setToolbar(){
+        setSupportActionBar(toolbar);
+        txtTitle.setText("Write");
+        txtComplete.setVisibility(View.GONE);
+        btnBase.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.tool_bar_base_go_back)
+    void onGoBackClicked(){
+        finish();
+    }
 }

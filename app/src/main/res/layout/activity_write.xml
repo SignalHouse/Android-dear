@@ -8,6 +8,9 @@
     android:orientation="vertical"
     tools:context=".activity.WriteActivity">
 
+    <include
+        android:id="@+id/write_tool_bar"
+        layout="@layout/tool_bar_base"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
