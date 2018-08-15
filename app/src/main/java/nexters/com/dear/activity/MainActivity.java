@@ -1,10 +1,16 @@
 package nexters.com.dear.activity;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,6 +18,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
 import nexters.com.dear.adapter.LetterViewAdapter;
 import nexters.com.dear.app.DearApp;
@@ -25,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
     TextView txtHr;
     @BindView(R.id.main_txt_time_min)
     TextView txtMin;
+    @BindView(R.id.tool_bar_main_logo)
+    ImageView btnLogo;
+    @BindView(R.id.tool_bar_main_setting)
+    ImageView btnSetting;
+    @BindView(R.id.tool_bar_main)
+    Toolbar toolbar;
 
     private LetterViewAdapter letterAdapter;
     private ArrayList<LetterItem> letterItems = new ArrayList<>();
@@ -34,8 +47,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         ButterKnife.bind(this);
 
+
+        setToolbar();
         setLetterView();
         setTimer();
     }
@@ -66,6 +82,20 @@ public class MainActivity extends AppCompatActivity {
         timer.setTxtView(txtHr);
         timer.setTxtView(txtMin);
         timer.start();
+    }
 
+   private void setToolbar(){
+        setSupportActionBar(toolbar);
+
+   }
+
+    @OnClick(R.id.tool_bar_main_setting)
+    void onSettingClicked(){
+        Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.tool_bar_main_logo)
+    void onLogoClicked(){
+        Toast.makeText(getApplicationContext(), "Logo clicked", Toast.LENGTH_SHORT).show();
     }
 }
