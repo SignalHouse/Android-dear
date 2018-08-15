@@ -1,5 +1,6 @@
 package nexters.com.dear.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -138,6 +139,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     }
                     setToken(buffer.toString());
+                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
                     return buffer.toString();
 
                 } catch (MalformedURLException e){

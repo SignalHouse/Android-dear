@@ -32,9 +32,19 @@ public class SplashActivity extends AppCompatActivity {
 
     private class SplashHandler implements Runnable {
         public void run() {
-            Intent i = new Intent(SplashActivity.this, WalkThroughActivity.class); // 수정 예정
-            startActivity(i);
-            SplashActivity.this.finish();
+            if(getToken().equals("")) {
+
+                Intent i = new Intent(SplashActivity.this, WalkThroughActivity.class);
+                startActivity(i);
+                SplashActivity.this.finish();
+            }
+
+            else {
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(i);
+                SplashActivity.this.finish();
+            }
+
         }
     }
 
@@ -56,4 +66,10 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
     }
+
+    public String getToken(){
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        return pref.getString("token", "");
+    }
+
 }
