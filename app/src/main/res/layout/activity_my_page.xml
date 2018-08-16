@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mypage_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MyPageActivity"
@@ -97,20 +98,37 @@
             app:layout_constraintHorizontal_bias="0"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/mypage_txt_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="치킨데리야끼"
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
-            android:textSize="15dp"
+            android:textSize="@dimen/default_dscrp_size"
             android:textColor="@color/colorGray"
+            android:background="@android:color/transparent"
+            android:enabled="false"
+            android:maxLength="15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/mypage_divider1"
             app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="1"
+            />
+
+        <ImageView
+            android:id="@+id/mypage_img_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/img_edit"
+            app:layout_constraintBottom_toTopOf="@+id/mypage_divider2"
+            app:layout_constraintEnd_toStartOf="@+id/mypage_txt_nickname"
+            app:layout_constraintStart_toEndOf="@+id/mypage_dscrp_nickname"
+            app:layout_constraintTop_toTopOf="@+id/mypage_divider1"
             app:layout_constraintHorizontal_bias="1"
             />
 
@@ -151,7 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
-            android:autoSizeMinTextSize="20dp"
+            android:autoSizeMinTextSize="@dimen/default_dscrp_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,6 +178,19 @@
             app:layout_constraintHorizontal_bias="1"
             />
 
+        <TextView
+            android:id="@+id/mypage_txt_toggle_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="OFF"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/default_dscrp_size"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintBottom_toTopOf="@+id/mypage_divider3"
+            app:layout_constraintEnd_toStartOf="@+id/mypage_toggle"
+            app:layout_constraintStart_toEndOf="@+id/mypage_dscrp_notification"
+            app:layout_constraintTop_toBottomOf="@+id/mypage_divider2" />
         <View
             android:id="@+id/mypage_divider3"
             android:layout_width="match_parent"
