@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nexters.com.dear.R;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements  View.OnClickListener {
     @BindView(R.id.register_tool_bar)
     Toolbar toolbar;
     @BindView(R.id.tool_bar_base_btn)
@@ -43,6 +43,10 @@ public class RegisterActivity extends AppCompatActivity {
     TextView txtTitle;
     @BindView(R.id.tool_bar_base_txt)
     TextView txtComplete;
+    @BindView(R.id.register_layout)
+    View viewRegister;
+    @BindView(R.id.register_edit_nick_name)
+    EditText editNickname;
 
 
     EditText inputEmail, inputNickname, inputPassword;
@@ -56,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         inputEmail = (EditText) findViewById(R.id.register_edit_email);
-        inputNickname = (EditText) findViewById(R.id.register_edit_name);
+//        inputNickname = (EditText) findViewById(R.id.register_edit_name);
         inputPassword = (EditText) findViewById(R.id.register_edit_pw);
 
         btnRegister = (Button) findViewById(R.id.register_btn_sign_in);
@@ -72,6 +76,17 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         setToolbar();
+        viewRegister.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.register_layout:
+                viewRegister.requestFocus();
+                break;
+                
+        }
     }
 
     private void setToolbar(){
