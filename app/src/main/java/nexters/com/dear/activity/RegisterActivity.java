@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nexters.com.dear.R;
 
-public class RegisterActivity extends AppCompatActivity implements  View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.register_tool_bar)
     Toolbar toolbar;
     @BindView(R.id.tool_bar_base_btn)
@@ -76,18 +76,8 @@ public class RegisterActivity extends AppCompatActivity implements  View.OnClick
         });
 
         setToolbar();
-        viewRegister.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.register_layout:
-                viewRegister.requestFocus();
-                break;
-                
-        }
-    }
 
     private void setToolbar(){
         setSupportActionBar(toolbar);
