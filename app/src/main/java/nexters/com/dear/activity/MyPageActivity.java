@@ -1,5 +1,6 @@
 package nexters.com.dear.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,10 @@ public class MyPageActivity extends AppCompatActivity {
     TextView txtTitle;
     @BindView(R.id.tool_bar_base_txt)
     TextView txtComplete;
+    @BindView(R.id.mypage_dscrp_change_pw)
+    TextView txtChangePW;
+    @BindView(R.id.mypage_dscrp_contact)
+    TextView txtContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +55,16 @@ public class MyPageActivity extends AppCompatActivity {
     @OnClick(R.id.tool_bar_base_btn)
     void onConfirmClicked(){
         finish();
+    }
+
+    @OnClick(R.id.mypage_dscrp_contact)
+    void onContactClicked(){
+
+    }
+
+    @OnClick(R.id.mypage_dscrp_change_pw)
+    void onChangePWClikced(){
+        Intent i = new Intent(MyPageActivity.this, PWUpdateActivity.class);
+        startActivity(i);
     }
 }
