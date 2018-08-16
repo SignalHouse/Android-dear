@@ -3,5 +3,7 @@
     <dimen name="time_margin_hr_min">11dp</dimen>
     <dimen name="time_margin">2dp</dimen>
     <dimen name="margin_side">20dp</dimen>
+    <dimen name="margin_side_long">30dp</dimen>
     <dimen name="toolbar_height">60dp</dimen>
+    <dimen name="default_dscrp_size">18dp</dimen>
 </resources>

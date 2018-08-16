@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.PWUpdateActivity"
     android:orientation="vertical"
+    android:background="#ffffff"
     >
 
     <include
@@ -14,44 +15,138 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ffffff"
         >
 
         <TextView
             android:id="@+id/pw_dscrp_cur_pw"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/margin_side_long"
             android:layout_marginTop="15dp"
             android:text="현재 비밀번호"
             android:textColor="#000000"
-            android:textSize="18dp"
+            android:textSize="@dimen/default_dscrp_size"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/pw_edit_cur_pw"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintVertical_bias="0"
             />
 
         <EditText
             android:id="@+id/pw_edit_cur_pw"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/margin_side"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             android:inputType="textPassword"
+            android:textSize="@dimen/default_dscrp_size"
+            android:textColor="@color/colorGray"
+            android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pw_dscrp_cur_pw"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/pw_dscrp_cur_pw"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintVertical_bias="0"
             />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".2"
+            android:background="@color/colorDivider"
+            app:layout_constraintBottom_toTopOf="@+id/pw_dscrp_new_pw"
+            app:layout_constraintTop_toBottomOf="@+id/pw_dscrp_cur_pw" />
+
+        <TextView
+            android:id="@+id/pw_dscrp_new_pw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/margin_side_long"
+            android:layout_marginTop="@dimen/margin_side_long"
+            android:text="새 비밀번호"
+            android:textColor="#000000"
+            android:textSize="@dimen/default_dscrp_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pw_dscrp_cur_pw"
+            app:layout_constraintRight_toLeftOf="@id/pw_edit_new_pw"
+            app:layout_constraintVertical_bias="0"
+            />
+
+        <EditText
+            android:id="@+id/pw_edit_new_pw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="@dimen/margin_side"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/margin_side_long"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/pw_dscrp_new_pw"
+            app:layout_constraintTop_toBottomOf="@+id/pw_edit_cur_pw"
+            app:layout_constraintVertical_bias="0"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            android:alpha=".2"
+            app:layout_constraintBottom_toTopOf="@+id/pw_dscrp_new_pw_confirm"
+            app:layout_constraintTop_toBottomOf="@+id/pw_dscrp_new_pw" />
+
+        <TextView
+            android:id="@+id/pw_dscrp_new_pw_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/margin_side_long"
+            android:layout_marginTop="@dimen/margin_side_long"
+            android:text="새 비밀번호 확인"
+            android:textColor="#000000"
+            android:textSize="@dimen/default_dscrp_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pw_dscrp_new_pw"
+            app:layout_constraintRight_toLeftOf="@id/pw_edit_new_pw_confirm"
+            app:layout_constraintVertical_bias="0"
+            />
+
+        <EditText
+            android:id="@+id/pw_edit_new_pw_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_side_long"
+            android:layout_marginEnd="@dimen/margin_side"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/margin_side_long"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/pw_dscrp_new_pw_confirm"
+            app:layout_constraintTop_toBottomOf="@+id/pw_edit_new_pw"
+            app:layout_constraintVertical_bias="0"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            android:alpha=".2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pw_dscrp_new_pw_confirm" />
 
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
