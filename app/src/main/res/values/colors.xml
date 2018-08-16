@@ -7,4 +7,5 @@
     <color name="buttonColor">#33556a</color>
     <color name="colorDivider">#919195</color>
     <color name="colorGray">#999999</color>
+    <color name="colorDarkerGray">#616161</color>
 </resources>
