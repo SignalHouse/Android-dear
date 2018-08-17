@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_layout"
     android:background="@color/colorBackground"
     tools:context=".activity.MainActivity">
     <LinearLayout
@@ -155,12 +156,58 @@
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/main_fab"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_layout_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        android:layout_margin="25dp"
-        android:clickable="true"
-        />
+        >
+        <TextView
+            android:id="@+id/main_remaining_letters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="4 남음"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/main_fab"
+            app:layout_constraintEnd_toEndOf="@+id/main_fab"
+            app:layout_constraintStart_toStartOf="@+id/main_fab"
+            app:layout_constraintTop_toTopOf="@+id/main_fab"
+            app:layout_constraintVertical_bias="1"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/main_fab"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="right|bottom"
+            android:layout_margin="25dp"
+            android:alpha=".9"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/img_fab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </android.support.constraint.ConstraintLayout>
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/main_fab"-->
+        <!--android:layout_width="72dp"-->
+        <!--android:layout_height="72dp"-->
+        <!--android:layout_gravity="right|bottom"-->
+        <!--android:layout_margin="25dp"-->
+        <!--android:clickable="true"-->
+        <!--android:src="@drawable/img_fab"-->
+        <!--android:scaleType="center"-->
+        <!--android:alpha=".9"-->
+        <!--/>-->
 </android.support.design.widget.CoordinatorLayout>
