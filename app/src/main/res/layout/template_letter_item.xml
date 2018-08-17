@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
     >
-    <include
-        android:id="@+id/template_opened_letter"
-        layout="@layout/template_letter_opened"/>
-    <include
-        android:id="@+id/template_not_openend_letter"
-        layout="@layout/template_letter_not_opened"/>
+    <FrameLayout
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <CheckBox
+            android:id="@+id/template_letter_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="1dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"
 
-</LinearLayout>
+            />
+        <include
+            android:id="@+id/template_opened_letter"
+            layout="@layout/template_letter_opened"/>
+        <include
+            android:id="@+id/template_not_openend_letter"
+            layout="@layout/template_letter_not_opened"/>
+    </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+</RelativeLayout>
