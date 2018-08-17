@@ -42,9 +42,12 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.main_fab)
     FloatingActionButton fab;
+    @BindView(R.id.main_txt_edit)
+    TextView txtEdit;
 
     private LetterViewAdapter letterAdapter;
     private ArrayList<LetterItem> letterItems = new ArrayList<>();
+    private boolean isEditMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,4 +114,26 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, WriteActivity.class);
         startActivity(i);
     }
+
+    @OnClick(R.id.main_txt_edit)
+    void onEditClicked(){
+        if (isEditMode){
+            txtEdit.setText("편집");
+            setCheckbox(false);
+            isEditMode = false;
+        }
+        else{
+            txtEdit.setText("삭제");
+            setCheckbox(true);
+            isEditMode = true;
+        }
+    }
+
+    private void setCheckbox(boolean checkVisibility){
+        for(LetterItem letter : letterItems){
+           letter.setCheckVisible(checkVisibility);
+        }
+        letterAdapter.notifyDataSetChanged();
+    }
+
 }

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,13 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
     public void onBindViewHolder(@NonNull letterViewHolder holder, int position) {
         holder.txtSender.setText(letterItems.get(position).getSender());
         holder.txtTitle.setText(letterItems.get(position).getTitle());
+
+        if (letterItems.get(position).isCheckVisible())
+            holder.letterCheck.setVisibility(View.VISIBLE);
+        else
+            holder.letterCheck.setVisibility(View.GONE);
+
+
         if (letterItems.get(position).isNew()) {
             holder.openedLetter.setVisibility(View.VISIBLE);
             holder.notopenedLetter.setVisibility(View.GONE);
@@ -48,6 +56,7 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         return letterItems.size();
     }
 
+
     class letterViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.template_letter_title)
         TextView txtTitle;
@@ -59,6 +68,8 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         View openedLetter;
         @BindView(R.id.template_not_openend_letter)
         View notopenedLetter;
+        @BindView(R.id.template_letter_check)
+        CheckBox letterCheck;
 
         public letterViewHolder(View itemView) {
             super(itemView);
