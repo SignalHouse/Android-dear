@@ -3,60 +3,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="wrap_content"
     >
 
     <ImageView
         android:id="@+id/template_letter_opened_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff" />
-
-    <TextView
-        android:id="@+id/template_letter_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:text="편지내용\n편지"
-        android:textSize="20dp"
-        android:minLines="1"
-        android:maxLines="2"
+        android:src="@drawable/img_opened_letter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
+        />
+
+    <TextView
+        android:id="@+id/template_letter_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_side"
+        android:layout_marginRight="@dimen/margin_side"
+        android:maxLines="2"
+        android:minLines="1"
+        android:text="편지내용\n편지"
+        android:gravity="center"
+        android:textSize="@dimen/med_dscrp_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/template_letter_opened_bg"
+        app:layout_constraintStart_toStartOf="@id/template_letter_opened_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/template_letter_dcrp_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="by"
+        android:textSize="@dimen/small_dscrp_size"
+        android:layout_marginLeft="@dimen/margin_side"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/template_letter_opened_bg"
+        app:layout_constraintStart_toStartOf="@id/template_letter_opened_bg"
+        app:layout_constraintTop_toBottomOf="@id/template_letter_title"
+        app:layout_constraintVertical_bias=".5"
         app:layout_constraintHorizontal_bias="0"
         />
 
     <TextView
-        android:id="@+id/template_letter_dcrp_by"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="by"
-        android:textSize="14dp"
-        android:layout_marginBottom="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1"
-        />
-
-    <TextView
-        android:id="@+id/template_letter_sender"
+        android:id="@+id/template_letter_contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Someone"
         android:textColor="#333333"
-        android:textSize="18dp"
+        android:textSize="@dimen/small_dscrp_size"
+        android:layout_marginLeft="@dimen/margin_side"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/template_letter_dcrp_by"
-        app:layout_constraintVertical_bias=".2"
+        app:layout_constraintEnd_toEndOf="@id/template_letter_opened_bg"
+        app:layout_constraintStart_toStartOf="@id/template_letter_opened_bg"
+        app:layout_constraintTop_toBottomOf="@id/template_letter_dcrp_recent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0"
         />
 </android.support.constraint.ConstraintLayout>

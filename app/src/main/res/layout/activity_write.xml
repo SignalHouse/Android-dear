@@ -12,9 +12,7 @@
         android:id="@+id/write_tool_bar"
         layout="@layout/tool_bar_base"/>
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -130,5 +128,4 @@
                 ></RelativeLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
-    </android.support.constraint.ConstraintLayout>
 </LinearLayout>

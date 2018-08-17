@@ -53,7 +53,7 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         TextView txtTitle;
         @BindView(R.id.template_letter_stamp)
         ImageView imgStamp;
-        @BindView(R.id.template_letter_sender)
+        @BindView(R.id.template_letter_dcrp_recent)
         TextView txtSender;
         @BindView(R.id.template_opened_letter)
         View openedLetter;

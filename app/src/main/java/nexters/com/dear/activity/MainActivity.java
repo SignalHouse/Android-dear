@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
         cal.set(Calendar.HOUR_OF_DAY, DearApp.getAppInstance().getSEND_HR());
         cal.set(Calendar.MINUTE, DearApp.getAppInstance().getSEND_MIN());
         cal.set(Calendar.SECOND, DearApp.getAppInstance().getSEND_SEC());
-
+        if (!curTime.before(cal.getTime())){ //if before the time
+            cal.add(Calendar.DATE, 1);
+        }
         DateCountDownTimer timer = new DateCountDownTimer(cal.getTimeInMillis() - curTime.getTime(), DateCountDownTimer.TIME_INTERVAL);
         timer.setType(DateCountDownTimer.TYPE_HHMM);
         timer.setTxtView(txtHr);

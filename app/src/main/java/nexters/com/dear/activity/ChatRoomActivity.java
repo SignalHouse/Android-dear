@@ -1,10 +1,12 @@
 package nexters.com.dear.activity;
 
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +35,10 @@ public class ChatRoomActivity extends AppCompatActivity {
     TextView txtTitle;
     @BindView(R.id.tool_bar_base_txt)
     TextView txtComplete;
+    @BindView(R.id.chat_drawer_layout)
+    DrawerLayout drawerLayout;
+
+
 
     ChatArrayList chatMessages;
     private ChatMessageAdapter chatMessageAdapter;
@@ -80,6 +86,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(chatMessageAdapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.scrollToPosition(chatMessages.size() - 1);
     }
 
     private void setToolbar(){
@@ -87,10 +94,16 @@ public class ChatRoomActivity extends AppCompatActivity {
         txtTitle.setText("닉네임");
         txtComplete.setVisibility(View.GONE);
         btnBase.setVisibility(View.VISIBLE);
+        btnBase.setImageResource(R.drawable.img_menu);
     }
 
     @OnClick(R.id.tool_bar_base_go_back)
     void onGoBackClicked(){
         finish();
+    }
+
+    @OnClick(R.id.tool_bar_base_btn)
+    void onBaseBtnClicked(){
+        drawerLayout.openDrawer(Gravity.END);
     }
 }

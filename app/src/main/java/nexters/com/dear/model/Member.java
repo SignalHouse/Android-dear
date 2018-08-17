@@ -19,5 +19,4 @@ public class Member {
     public void setNickname(String nickname) { this.nickname = nickname; }
     public String getEmail() { return email; }
     public String getNickname() { return nickname; }
-
 }

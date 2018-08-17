@@ -1,22 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ChatRoomActivity"
-    android:orientation="vertical">
-    <include
-        android:id="@+id/chat_tool_bar"
-        layout="@layout/tool_bar_base"/>
+    tools:context=".activity.ChatRoomActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/chat_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </android.support.constraint.ConstraintLayout>
-</LinearLayout>
+        <include
+            android:id="@+id/chat_tool_bar"
+            layout="@layout/tool_bar_base" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/chat_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintVertical_weight="10"
+                app:layout_constraintBottom_toTopOf="@id/chat_layout_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside"></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/chat_dscrp_not_sendable"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="답장이 올 때까지 편지를 보낼 수 없습니다."
+                android:textSize="@dimen/small_dscrp_size"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chat_recycler_view"
+                app:layout_constraintVertical_bias="1" />
+
+
+            <RelativeLayout
+                android:id="@+id/chat_layout_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chat_recycler_view"
+                app:layout_constraintVertical_bias="1"
+                >
+                
+               <EditText
+                   android:id="@+id/chat_edit_input"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="yoo"
+                   android:background="#ffffff"
+                   android:layout_alignParentLeft="true"
+                   android:layout_toLeftOf="@id/chat_btn_send"
+                   android:maxHeight="100dp"
+                   android:paddingLeft="@dimen/margin_side"
+                   android:paddingRight="@dimen/margin_side"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"
+                   /> 
+                
+                <ImageView
+                    android:id="@+id/chat_btn_send"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorPrimaryDark"
+                    />
+            </RelativeLayout>
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/chat_nav_drawer"
+        layout="@layout/layout_navigation_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
