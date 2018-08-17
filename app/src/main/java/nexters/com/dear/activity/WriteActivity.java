@@ -91,6 +91,7 @@ public class WriteActivity extends AppCompatActivity {
         txtTitle.setText("Write");
         txtComplete.setVisibility(View.GONE);
         btnBase.setVisibility(View.VISIBLE);
+        btnBase.setImageResource(R.drawable.img_send);
     }
 
     @OnClick(R.id.tool_bar_base_go_back)
