@@ -4,18 +4,20 @@ import java.util.Date;
 
 public class LetterItem {
     private String title, sender;
-    private boolean isNew, isCheckVisible;
+    private boolean isNew, isCheckVisible, isSelected;
     private int letterID;
     private Date date;
-    public LetterItem(){
-        isCheckVisible = false;
+    public LetterItem(int letterID){
+        this.letterID = letterID;
+        isCheckVisible = isSelected = false;
     }
-    public LetterItem(String title, String sender, Date date) {
+    public LetterItem(String title, String sender, Date date, int letterID) {
         this.title = title;
         this.sender = sender;
         this.date = date;
+        this.letterID = letterID;
         isNew = true;
-        isCheckVisible = false;
+        isCheckVisible = isSelected = false;
     }
 
     public String getTitle() {
@@ -64,5 +66,13 @@ public class LetterItem {
 
     public void setCheckVisible(boolean checkVisible) {
         isCheckVisible = checkVisible;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }

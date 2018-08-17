@@ -61,7 +61,7 @@ public class WriteActivity extends AppCompatActivity {
         Date curDate = Calendar.getInstance().getTime();
         letterItems = new ArrayList<>();
         for (int i = 0; i < 100; i++){
-            LetterItem letterItem = new LetterItem("Title" + i, "Someone" + i, curDate);
+            LetterItem letterItem = new LetterItem("Title" + i, "Someone" + i, curDate, i);
             letterItems.add(letterItem);
         }
         waitAdapter = new WaitingLetterAdapter(letterItems);

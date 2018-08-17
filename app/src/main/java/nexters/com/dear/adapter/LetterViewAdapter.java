@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import nexters.com.dear.R;
 import nexters.com.dear.model.LetterItem;
 
@@ -32,6 +34,8 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
 
     @Override
     public void onBindViewHolder(@NonNull letterViewHolder holder, int position) {
+        final LetterItem letter = letterItems.get(position);
+
         holder.txtSender.setText(letterItems.get(position).getSender());
         holder.txtTitle.setText(letterItems.get(position).getTitle());
 
@@ -49,6 +53,13 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
             holder.notopenedLetter.setVisibility(View.VISIBLE);
             holder.openedLetter.setVisibility(View.GONE);
         }
+
+        holder.letterCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                letter.setSelected(isChecked);
+            }
+        });
     }
 
     @Override
@@ -74,6 +85,7 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         public letterViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
         }
     }
 }

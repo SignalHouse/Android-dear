@@ -35,7 +35,7 @@ public class MessageBoxActivity extends AppCompatActivity {
         Date curDate = Calendar.getInstance().getTime();
         //dummy data
         for (int i = 0; i < 100; i++){
-            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate);
+            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate, i );
             letter.setDate(Calendar.getInstance().getTime());
             letterItems.add(letter);
         }

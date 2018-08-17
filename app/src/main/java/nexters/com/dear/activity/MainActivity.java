@@ -26,8 +26,10 @@ import nexters.com.dear.adapter.LetterViewAdapter;
 import nexters.com.dear.app.DearApp;
 import nexters.com.dear.model.LetterItem;
 import nexters.com.dear.util.DateCountDownTimer;
+import nexters.com.dear.util.DearDialog;
+import nexters.com.dear.util.DearDialogListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DearDialogListener{
     @BindView(R.id.main_letter_recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.main_txt_time_hr)
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     private LetterViewAdapter letterAdapter;
     private ArrayList<LetterItem> letterItems = new ArrayList<>();
+    private ArrayList<Integer> letterIDs = new ArrayList<>();
     private boolean isEditMode = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         ButterKnife.bind(this);
-
 
         setToolbar();
         setLetterView();
@@ -67,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         Date curDate = Calendar.getInstance().getTime();
         //randomly generate dummy items
         for (int i  = 0; i < 100; i++) {
-            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate);
+            LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate, i);
             if (i % 5 == 0) letter.setNew(false);
             letterItems.add(letter);
         }
@@ -95,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
    private void setToolbar(){
         setSupportActionBar(toolbar);
-
    }
 
     @OnClick(R.id.tool_bar_main_setting)
@@ -119,8 +121,21 @@ public class MainActivity extends AppCompatActivity {
     void onEditClicked(){
         if (isEditMode){
             txtEdit.setText("편집");
-            setCheckbox(false);
-            isEditMode = false;
+
+            for (LetterItem letter : letterItems){
+                if (letter.isSelected()){
+                    letterIDs.add(letter.getLetterID());
+                }
+            }
+
+            if(letterIDs.size() > 0) {
+                final DearDialog dialog = new DearDialog(this, this, "정말 삭제하시겠어요?", DearDialog.DEARDIALOG_DOUBLE_BUTTON);
+                dialog.show();
+            }
+            else {
+                setCheckbox(false);
+                isEditMode = false;
+            }
         }
         else{
             txtEdit.setText("삭제");
@@ -136,4 +151,26 @@ public class MainActivity extends AppCompatActivity {
         letterAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void OKListener() {
+        for (Integer id : letterIDs){
+            for (LetterItem letter : letterItems){
+                if(letter.getLetterID() == id) {
+                    letterItems.remove(letter);
+                    break;
+                }
+            }
+        }
+        letterIDs.clear();
+        letterAdapter.notifyDataSetChanged();
+        setCheckbox(false);
+        isEditMode = false;
+    }
+
+    @Override
+    public void CancelListener() {
+        setCheckbox(false);
+        isEditMode = false;
+
+    }
 }

@@ -7,6 +7,7 @@
     <dimen name="toolbar_height">60dp</dimen>
     <dimen name="default_dscrp_size">18dp</dimen>
     <dimen name="drawable_padding">15dp</dimen>
+    <dimen name="large_dscrp_size">20dp</dimen>
     <dimen name="default_hint_size">16dp</dimen>
     <dimen name="small_dscrp_size">14dp</dimen>
     <dimen name="med_dscrp_size">16dp</dimen>
