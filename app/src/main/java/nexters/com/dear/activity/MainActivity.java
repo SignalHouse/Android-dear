@@ -77,13 +77,15 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
     private void setLetterView(){
         Date curDate = Calendar.getInstance().getTime();
         //randomly generate dummy items
-        for (int i  = 0; i < 100; i++) {
+        for (int i  = 0; i < 10; i++) {
             LetterItem letter = new LetterItem("Title" + i, "Someone" + i, curDate, i);
             if (i % 5 == 0) letter.setNew(false);
             letterItems.add(letter);
         }
         letterAdapter = new LetterViewAdapter(letterItems);
         mRecyclerView.setAdapter(letterAdapter);
+
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         txtTotal.setText("List  " + letterItems.size());

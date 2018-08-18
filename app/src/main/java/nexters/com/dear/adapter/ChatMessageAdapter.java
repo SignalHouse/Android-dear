@@ -1,5 +1,6 @@
 package nexters.com.dear.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -46,19 +47,20 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
             holder.viewDate.setVisibility(View.GONE);
 
             holder.txtContents.setText(chatMessages.get(position).getContents());
-            holder.txtName.setText(chatMessages.get(position).getName());
-
-            holder.txtTime.setText(TimeUtil.getDateInString(chatMessages.get(position).getDate(), "hh:mm a"));
 
             if (chatMessages.get(position).getAlignment() == ChatMessage.ALIGNMENT_LEFT){
                 holder.txtContents.setGravity(Gravity.LEFT);
-                holder.txtName.setGravity(Gravity.LEFT);
-                holder.txtTime.setGravity(Gravity.LEFT);
+                holder.txtTimeLeft.setText(TimeUtil.getDateInString(chatMessages.get(position).getDate(), "hh:mm a"));
+                holder.txtSenderLeft.setText(chatMessages.get(position).getName());
+                holder.viewLeft.setVisibility(View.VISIBLE);
+                holder.viewRight.setVisibility(View.INVISIBLE);
             }
             else if (chatMessages.get(position).getAlignment() == ChatMessage.ALIGNMENT_RIGHT){
                 holder.txtContents.setGravity(Gravity.RIGHT);
-                holder.txtName.setGravity(Gravity.RIGHT);
-                holder.txtTime.setGravity(Gravity.RIGHT);
+                holder.txtTimeRight.setText(TimeUtil.getDateInString(chatMessages.get(position).getDate(), "hh:mm a"));
+                holder.txtSenderRight.setText(chatMessages.get(position).getName());
+                holder.viewRight.setVisibility(View.VISIBLE);
+                holder.viewLeft.setVisibility(View.INVISIBLE);
             }
         }
     }
@@ -77,10 +79,19 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
         TextView txtDateDivider;
         @BindView(R.id.template_message_contents)
         TextView txtContents;
-        @BindView(R.id.template_message_time)
-        TextView txtTime;
-        @BindView(R.id.template_message_name)
-        TextView txtName;
+        @BindView(R.id.template_message_sender_left)
+        TextView txtSenderLeft;
+        @BindView(R.id.template_message_sender_right)
+        TextView txtSenderRight;
+        @BindView(R.id.template_message_time_left)
+        TextView txtTimeLeft;
+        @BindView(R.id.template_message_time_right)
+        TextView txtTimeRight;
+        @BindView(R.id.template_message_layout_left)
+        View viewLeft;
+        @BindView(R.id.template_message_layout_right)
+        View viewRight;
+
         public chatViewHolder (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

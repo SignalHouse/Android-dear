@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/template_message_sender_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_side"
+        android:layout_marginTop="@dimen/margin_side_short"
+        android:text="대상n의 닉네임"
+        android:textColor="#000000"
+        android:textSize="@dimen/default_dscrp_size"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/template_message_time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_side"
+        android:text="00:00 PM"
+        app:layout_constraintBottom_toBottomOf="@+id/template_message_sender_right"
+        app:layout_constraintEnd_toStartOf="@+id/template_message_sender_right"
+        app:layout_constraintTop_toTopOf="@+id/template_message_sender_right" />
+</android.support.constraint.ConstraintLayout>

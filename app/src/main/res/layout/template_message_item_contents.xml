@@ -9,24 +9,42 @@
     android:layout_marginBottom="200dp"
     android:background="#ffffff">
 
-    <TextView
-        android:id="@+id/template_message_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="@dimen/margin_side"
-        android:layout_marginStart="@dimen/margin_side"
-        android:layout_marginTop="10dp"
-        android:gravity="right"
-        android:text="닉네임"
-        android:textColor="#302f37"
-        android:textSize="18dp"
+    <!--<TextView-->
+        <!--android:id="@+id/template_message_name"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginEnd="@dimen/margin_side"-->
+        <!--android:layout_marginStart="@dimen/margin_side"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:gravity="right"-->
+        <!--android:text="닉네임"-->
+        <!--android:textColor="#302f37"-->
+        <!--android:textSize="18dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0"-->
+        <!--/>-->
+
+    <include
+        android:id="@+id/template_message_layout_right"
+        layout="@layout/template_message_item_contents_right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
         />
+
+    <include
+        android:id="@+id/template_message_layout_left"
+        layout="@layout/template_message_item_contents_left"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!--<View-->
         <!--android:id="@+id/template_message_divider1"-->
@@ -48,31 +66,17 @@
         android:id="@+id/template_message_contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_side"
         android:layout_marginEnd="@dimen/margin_side"
         android:layout_marginStart="@dimen/margin_side"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_side_short"
         android:text="asdasdasdadsasdadasdasdasddadwqdsad"
         android:gravity="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/template_message_name"
-        app:layout_constraintVertical_bias="0"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/template_message_layout_right"
+        app:layout_constraintVertical_bias="0" />
 
-    <TextView
-        android:id="@+id/template_message_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="@dimen/margin_side"
-        android:layout_marginStart="@dimen/margin_side"
-        android:layout_marginTop="8dp"
-        android:gravity="right"
-        android:text="10:00 pm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/template_message_contents" />
+
 </android.support.constraint.ConstraintLayout>
