@@ -11,8 +11,6 @@
     <include
         android:id="@+id/write_tool_bar"
         layout="@layout/tool_bar_base"/>
-
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -147,15 +145,16 @@
                 android:id="@+id/write_layout_letter"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:layout_marginRight="@dimen/margin_side"
-                android:layout_marginLeft="@dimen/margin_side"
+
                 android:layout_marginTop="20dp"
-                android:background="#ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/write_dscrp_new_letter"
-                ></RelativeLayout>
+                >
+                <include
+                    layout="@layout/layout_write_letter_fixed"/>
+            </RelativeLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

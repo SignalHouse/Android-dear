@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:background="@android:color/transparent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/layout_Write_fixed_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_letter_bg" />
+
+    <EditText
+        android:id="@+id/layout_write_fixed_edit_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/margin_side"
+        android:layout_marginStart="@dimen/margin_side"
+        android:layout_marginTop="@dimen/margin_side_long"
+        android:background="@android:color/transparent"
+        android:textSize="@dimen/large_dscrp_size"
+        android:singleLine="true"
+        android:hint="편지 제목을 입력해주세요."
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/layout_Write_fixed_bg" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_title" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line2" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line3" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line4" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line5" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line6" />
+
+    <ImageView
+        android:id="@+id/layout_write_fixed_edit_line8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/img_letter_line"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line7" />
+    <com.hanks.lineheightedittext.LineHeightEditText
+        android:id="@+id/layout_write_fixed_edit_contents"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/margin_side"
+        android:layout_marginStart="@dimen/margin_side"
+        android:layout_marginTop="@dimen/margin_side"
+        android:hint="어떤 이야기를 하고싶으세요?"
+        android:background="@android:color/transparent"
+        android:lineSpacingExtra="36dp"
+        android:textSize="@dimen/default_dscrp_size"
+        android:gravity="top"
+        android:maxLines="7"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_title" />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>
