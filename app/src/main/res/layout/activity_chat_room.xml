@@ -50,7 +50,7 @@
                 app:layout_constraintVertical_bias="1" />
 
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/chat_layout_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,30 +62,35 @@
                 app:layout_constraintTop_toBottomOf="@+id/chat_recycler_view"
                 app:layout_constraintVertical_bias="1"
                 >
-                
+
                <EditText
                    android:id="@+id/chat_edit_input"
-                   android:layout_width="match_parent"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:text="yoo"
                    android:background="#ffffff"
-                   android:layout_alignParentLeft="true"
-                   android:layout_toLeftOf="@id/chat_btn_send"
                    android:maxHeight="100dp"
                    android:paddingLeft="@dimen/margin_side"
                    android:paddingRight="@dimen/margin_side"
                    android:paddingTop="10dp"
                    android:paddingBottom="10dp"
-                   /> 
-                
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintRight_toLeftOf="@id/chat_btn_send"
+                   app:layout_constraintLeft_toLeftOf="parent" />
+
                 <ImageView
                     android:id="@+id/chat_btn_send"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:background="@color/colorPrimaryDark"
-                    />
-            </RelativeLayout>
+                    android:src="@drawable/img_send_white"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintLeft_toRightOf="@id/chat_edit_input"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
