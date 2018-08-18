@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import nexters.com.dear.R;
 import nexters.com.dear.adapter.LetterViewAdapter;
@@ -28,6 +31,7 @@ import nexters.com.dear.model.LetterItem;
 import nexters.com.dear.util.DateCountDownTimer;
 import nexters.com.dear.util.DearDialog;
 import nexters.com.dear.util.DearDialogListener;
+import nexters.com.dear.util.DearToast;
 
 public class MainActivity extends AppCompatActivity implements DearDialogListener{
     @BindView(R.id.main_letter_recycler_view)
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
     FloatingActionButton fab;
     @BindView(R.id.main_txt_edit)
     TextView txtEdit;
+    @BindView(R.id.main_txt_list)
+    TextView txtTotal;
+    @BindView(R.id.main_check_all)
+    CheckBox checkAll;
 
     private LetterViewAdapter letterAdapter;
     private ArrayList<LetterItem> letterItems = new ArrayList<>();
@@ -78,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
         mRecyclerView.setAdapter(letterAdapter);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        txtTotal.setText("List  " + letterItems.size());
     }
 
     private void setTimer(){
@@ -121,7 +130,8 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
     void onEditClicked(){
         if (isEditMode){
             txtEdit.setText("편집");
-
+            txtTotal.animate().x(txtTotal.getX() - 100);
+            checkAll.animate().alpha(0);
             for (LetterItem letter : letterItems){
                 if (letter.isSelected()){
                     letterIDs.add(letter.getLetterID());
@@ -139,6 +149,8 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
         }
         else{
             txtEdit.setText("삭제");
+            txtTotal.animate().x(txtTotal.getX() + 100);
+            checkAll.animate().alpha(1);
             setCheckbox(true);
             isEditMode = true;
         }
@@ -165,12 +177,23 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
         letterAdapter.notifyDataSetChanged();
         setCheckbox(false);
         isEditMode = false;
+        txtTotal.setText("List  " + letterItems.size());
+
+        DearToast.makeText(this, "편지함이 삭제됐습니다.").show();
     }
 
     @Override
     public void CancelListener() {
+        letterIDs.clear();
         setCheckbox(false);
         isEditMode = false;
 
+    }
+
+    @OnCheckedChanged(R.id.main_check_all)
+    void onCheckedAllChanged(CompoundButton buttonView, boolean isChecked){
+        for (LetterItem item : letterItems)
+            item.setSelected(isChecked);
+        letterAdapter.notifyDataSetChanged();
     }
 }

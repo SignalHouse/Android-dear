@@ -11,4 +11,5 @@
     <dimen name="default_hint_size">16dp</dimen>
     <dimen name="small_dscrp_size">14dp</dimen>
     <dimen name="med_dscrp_size">16dp</dimen>
+    <dimen name="margin_side_short">15dp</dimen>
 </resources>

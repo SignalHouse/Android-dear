@@ -40,9 +40,12 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         holder.txtTitle.setText(letterItems.get(position).getTitle());
 
         if (letterItems.get(position).isCheckVisible())
-            holder.letterCheck.setVisibility(View.VISIBLE);
+//            holder.letterCheck.setVisibility(View.VISIBLE);
+            holder.letterCheck.animate().alpha(1);
         else
-            holder.letterCheck.setVisibility(View.GONE);
+//            holder.letterCheck.setVisibility(View.GONE);
+            holder.letterCheck.animate().alpha(0);
+        holder.letterCheck.setChecked(letterItems.get(position).isSelected());
 
 
         if (letterItems.get(position).isNew()) {

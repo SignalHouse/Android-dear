@@ -21,8 +21,10 @@ import nexters.com.dear.R;
 import nexters.com.dear.adapter.ChatMessageAdapter;
 import nexters.com.dear.model.ChatMessage;
 import nexters.com.dear.util.ChatArrayList;
+import nexters.com.dear.util.DearDialog;
+import nexters.com.dear.util.DearDialogListener;
 
-public class ChatRoomActivity extends AppCompatActivity {
+public class ChatRoomActivity extends AppCompatActivity implements DearDialogListener{
     @BindView(R.id.chat_recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.chat_tool_bar)
@@ -37,7 +39,12 @@ public class ChatRoomActivity extends AppCompatActivity {
     TextView txtComplete;
     @BindView(R.id.chat_drawer_layout)
     DrawerLayout drawerLayout;
-
+    @BindView(R.id.drawer_exit)
+    TextView btnExit;
+    @BindView(R.id.drawer_block)
+    TextView btnBlock;
+    @BindView(R.id.drawer_report)
+    TextView btnReport;
 
 
     ChatArrayList chatMessages;
@@ -105,5 +112,21 @@ public class ChatRoomActivity extends AppCompatActivity {
     @OnClick(R.id.tool_bar_base_btn)
     void onBaseBtnClicked(){
         drawerLayout.openDrawer(Gravity.END);
+    }
+
+    @OnClick(R.id.drawer_exit)
+    void onExitClick(){
+        DearDialog dialog = new DearDialog(this, this, "정말 나가시겠어요?", DearDialog.DEARDIALOG_DOUBLE_BUTTON);
+        dialog.show();
+    }
+
+    @Override
+    public void OKListener() {
+        finish();
+    }
+
+    @Override
+    public void CancelListener() {
+
     }
 }

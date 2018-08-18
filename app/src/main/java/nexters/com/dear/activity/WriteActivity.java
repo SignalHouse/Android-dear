@@ -29,8 +29,8 @@ public class WriteActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     @BindView(R.id.write_txt_remaining_time)
     TextView txtTimer;
-    @BindView(R.id.write_txt_waiting_num)
-    TextView txtWaitings;
+//    @BindView(R.id.write_txt_waiting_num)
+//    TextView txtWaitings;
     @BindView(R.id.write_txt_remaining_letters)
     TextView txtRemainings;
     @BindView(R.id.write_tool_bar)
@@ -91,6 +91,7 @@ public class WriteActivity extends AppCompatActivity {
         txtTitle.setText("Write");
         txtComplete.setVisibility(View.GONE);
         btnBase.setVisibility(View.VISIBLE);
+
         btnBase.setImageResource(R.drawable.img_send);
     }
 

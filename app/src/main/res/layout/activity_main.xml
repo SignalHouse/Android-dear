@@ -27,6 +27,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="#ffffff"
@@ -138,6 +139,19 @@
                 app:layout_constraintHorizontal_bias="1"
                 />
 
+            <CheckBox
+                android:id="@+id/main_check_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="@dimen/margin_side"
+                android:alpha="0"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintBottom_toTopOf="@+id/main_letter_recycler_view"
+                app:layout_constraintEnd_toEndOf="@+id/main_img_bg"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/main_txt_letter_info" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/main_letter_recycler_view"
                 android:layout_width="match_parent"
@@ -151,6 +165,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_txt_list"
                 app:layout_constraintVertical_bias="0"></android.support.v7.widget.RecyclerView>
+
 
 
         </android.support.constraint.ConstraintLayout>

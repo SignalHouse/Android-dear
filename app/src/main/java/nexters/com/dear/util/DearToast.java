@@ -23,7 +23,7 @@ public class DearToast extends Toast {
         setView(view);
 
         setGravity(Gravity.BOTTOM, 0, 0);
-        setDuration(Toast.LENGTH_SHORT);
+        setDuration(Toast.LENGTH_LONG);
         txtMessage = view.findViewById(R.id.toast_message);
         txtMessage.setText(message);
     }
@@ -31,9 +31,5 @@ public class DearToast extends Toast {
     public static DearToast makeText(Context context, String message){
         DearToast result = new DearToast(context, message);
         return  result;
-    }
-    @Override
-    public void show() {
-        super.show();
     }
 }

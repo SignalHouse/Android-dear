@@ -15,7 +15,7 @@ public class DateCountDownTimer extends CountDownTimer {
     public final static int TYPE_HHMM = 2;
     public final static int TIME_INTERVAL = 1000;
 
-    private static final String format_HHMMSS = "%02d:%02d:%02d";
+    private static final String format_HHMMSS = "남은시간 %02d:%02d:%02d";
     private static final String format_HHMM = "%02d";
 
     private int type = 1;
