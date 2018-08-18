@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class LetterItem {
     private String title, sender;
-    private boolean isNew, isCheckVisible, isSelected;
+    private boolean isNew, isCheckVisible, isSelected, isWidthMatchParent;
     private int letterID;
     private Date date;
     public LetterItem(int letterID){
         this.letterID = letterID;
-        isCheckVisible = isSelected = false;
+        isCheckVisible = isSelected = isWidthMatchParent = false;
     }
     public LetterItem(String title, String sender, Date date, int letterID) {
         this.title = title;
@@ -17,7 +17,7 @@ public class LetterItem {
         this.date = date;
         this.letterID = letterID;
         isNew = true;
-        isCheckVisible = isSelected = false;
+        isCheckVisible = isSelected = isWidthMatchParent = false;
     }
 
     public String getTitle() {
@@ -74,5 +74,13 @@ public class LetterItem {
 
     public void setSelected(boolean selected) {
         isSelected = selected;
+    }
+
+    public boolean isWidthMatchParent() {
+        return isWidthMatchParent;
+    }
+
+    public void setWidthMatchParent(boolean widthMatchParent) {
+        isWidthMatchParent = widthMatchParent;
     }
 }

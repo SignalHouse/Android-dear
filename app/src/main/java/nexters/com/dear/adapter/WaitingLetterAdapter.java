@@ -1,5 +1,6 @@
 package nexters.com.dear.adapter;
 
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,12 +38,24 @@ public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdap
 
         holder.txtTime.setText(TimeUtil.getDateInString(letterItems.get(position).getDate(), "HH:mm"));
         holder.txtTitle.setText(letterItems.get(position).getTitle());
-
+        RecyclerView.LayoutParams curParams = (RecyclerView.LayoutParams) holder.viewLayout.getLayoutParams();
+        if (letterItems.get(position).isWidthMatchParent()){
+            curParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+            holder.viewLayout.setLayoutParams(curParams);
+        }
+        else{
+            curParams.rightMargin = 20;
+            holder.viewLayout.setLayoutParams(curParams);
+        }
     }
 
     @Override
     public int getItemCount() {
         return letterItems.size();
+    }
+
+    public static int pxToDp(int px){
+        return (int) (px/ Resources.getSystem().getDisplayMetrics().density);
     }
 
     class waitingViewHolder extends RecyclerView.ViewHolder{
@@ -54,6 +67,8 @@ public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdap
         TextView txtTime;
         @BindView(R.id.template_waiting_txt_title)
         TextView txtTitle;
+        @BindView(R.id.layout_waiting_message_item)
+        View viewLayout;
         public waitingViewHolder(View itemView) {
             super(itemView);
 
