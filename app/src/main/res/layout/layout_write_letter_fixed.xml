@@ -11,8 +11,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         >
+
     <ImageView
         android:id="@+id/layout_Write_fixed_bg"
         android:layout_width="match_parent"
@@ -144,7 +144,6 @@
             android:background="#ffffff"
             android:gravity="top"
             android:hint="어떤 이야기를 하고싶으세요?"
-            android:text="example text\ntex"
             android:textSize="@dimen/default_dscrp_size"
             android:inputType="textMultiLine"
 

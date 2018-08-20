@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Dear</string>
     <string name="title_activity_walk_through">WalkThroughActivity</string>
-    <string name="auth_server_url">http://192.168.43.168:8000</string>
+    <string name="auth_server_url">http://192.168.219.116:8000</string>
     <string name="chat_server_url">http://192.168.219.116:7000</string>
+    <string name="message_server_url">http://192.168.219.116:</string>
     <string name="find_pw_underlined"><u>비밀번호 찾기</u></string>
 </resources>

@@ -155,6 +155,7 @@
                 >
                 <include
                     layout="@layout/layout_write_letter_fixed"/>
+
             </RelativeLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>

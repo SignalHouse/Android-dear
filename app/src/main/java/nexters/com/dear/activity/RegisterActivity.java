@@ -1,5 +1,6 @@
 package nexters.com.dear.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputEmail, inputNickname, inputPassword;
     String email, nickname, password;
     Button btnRegister;
+    boolean isOK = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         inputEmail = (EditText) findViewById(R.id.register_edit_email);
-//        inputNickname = (EditText) findViewById(R.id.register_edit_name);
+        inputNickname = (EditText) findViewById(R.id.register_edit_nick_name);
         inputPassword = (EditText) findViewById(R.id.register_edit_pw);
 
         btnRegister = (Button) findViewById(R.id.register_btn_sign_in);
@@ -70,7 +72,6 @@ public class RegisterActivity extends AppCompatActivity {
                 email = inputEmail.getText().toString();
                 nickname = inputNickname.getText().toString();
                 password = inputPassword.getText().toString();
-
                 new registDB().execute(getString(R.string.auth_server_url)+"/api/user");
             }
         });
@@ -93,14 +94,33 @@ public class RegisterActivity extends AppCompatActivity {
 
     public class registDB extends AsyncTask<String, String, String> {
 
+        ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.setMessage("회원가입 중...");
+            progressDialog.show();
+        }
+
         @Override
         protected String doInBackground(String... urls) {
 
             try {
 
+                try {
+                    for (int i = 0; i < 5; i++) {
+                        progressDialog.setProgress(i * 30);
+                        Thread.sleep(500);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 //JSONObject를 만들고 key value 형식으로 값을 저장
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id","test");
+                jsonObject.accumulate("id","t");
                 jsonObject.accumulate("name", nickname);
                 jsonObject.accumulate("email",email);
                 jsonObject.accumulate("password",password);
@@ -144,8 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     }
                     setToken(buffer.toString());
-                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                    startActivity(intent);
+                    isOK = true;
                     return buffer.toString();
 
                 } catch (MalformedURLException e){
@@ -178,6 +197,12 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            progressDialog.dismiss();
+            if(isOK) {
+                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
 
