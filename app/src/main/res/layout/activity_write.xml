@@ -57,7 +57,7 @@
                 <!--app:layout_constraintVertical_bias="0"-->
                 <!--/>-->
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/write_img_right_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -154,6 +154,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/write_dscrp_new_letter"
                 >
                 <include
+                    android:id="@+id/layout_write_layout_edit"
                     layout="@layout/layout_write_letter_fixed"/>
 
             </RelativeLayout>

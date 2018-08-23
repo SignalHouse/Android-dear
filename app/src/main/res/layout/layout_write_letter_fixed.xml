@@ -30,7 +30,7 @@
             android:hint="편지 제목을 입력해주세요."
             android:singleLine="true"
             android:textSize="@dimen/large_dscrp_size"
-
+            android:focusable="false"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +146,7 @@
             android:hint="어떤 이야기를 하고싶으세요?"
             android:textSize="@dimen/default_dscrp_size"
             android:inputType="textMultiLine"
-
+            android:focusable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
             app:layout_constraintStart_toStartOf="parent"

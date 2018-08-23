@@ -29,7 +29,8 @@
         <activity android:name=".activity.MessageBoxActivity" />
         <activity android:name=".activity.WriteActivity" />
         <activity android:name=".activity.ChatRoomActivity" />
-        <activity android:name=".activity.PWUpdateActivity"></activity>
+        <activity android:name=".activity.PWUpdateActivity" />
+        <activity android:name=".activity.WriteLetterActivity"></activity>
     </application>
 
 </manifest>

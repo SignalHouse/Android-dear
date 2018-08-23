@@ -1,5 +1,6 @@
 package nexters.com.dear.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +44,9 @@ public class WriteActivity extends AppCompatActivity {
     TextView txtTitle;
     @BindView(R.id.tool_bar_base_txt)
     TextView txtComplete;
+    @BindView(R.id.layout_write_layout_edit)
+    View viewWrite;
+
 
     ArrayList<LetterItem> letterItems;
     WaitingLetterAdapter waitAdapter;
@@ -52,6 +56,7 @@ public class WriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         ButterKnife.bind(this);
+        
         setWaitingLetters();
         setTimer();
         setToolbar();
@@ -99,4 +104,17 @@ public class WriteActivity extends AppCompatActivity {
     void onGoBackClicked(){
         finish();
     }
+
+    @OnClick({R.id.layout_write_layout_edit, R.id.layout_write_fixed_edit_contents, R.id.layout_write_fixed_edit_title})
+    void onLayoutClicked(){
+        Intent i = new Intent(this, WriteLetterActivity.class);
+        startActivity(i);
+    }
+
+    @OnClick({R.id.write_dscrp_waiting, R.id.write_img_right_arrow})
+    void onWaitingClicked(){
+        Intent i = new Intent(this, MessageBoxActivity.class);
+        startActivity(i);
+    }
+
 }
