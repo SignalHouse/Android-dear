@@ -137,7 +137,7 @@
         <nexters.com.dear.widget.LinedEditText
             android:id="@+id/layout_write_fixed_edit_contents"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="1000dp"
             android:paddingLeft="@dimen/margin_side"
             android:paddingRight="@dimen/margin_side"
             android:paddingTop="@dimen/margin_side"

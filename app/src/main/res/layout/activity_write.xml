@@ -35,27 +35,6 @@
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintHorizontal_bias="0" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/write_txt_waiting_num"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--android:layout_marginEnd="8dp"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="22dp"-->
-                <!--android:background="#cf2e2e"-->
-                <!--android:paddingLeft="3dp"-->
-                <!--android:paddingRight="3dp"-->
-                <!--android:text="3"-->
-                <!--android:textColor="#ffffff"-->
-                <!--android:textSize="15dp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toEndOf="@+id/write_dscrp_waiting"-->
-                <!--app:layout_constraintTop_toTopOf="parent"-->
-                <!--app:layout_constraintHorizontal_bias="0"-->
-                <!--app:layout_constraintVertical_bias="0"-->
-                <!--/>-->
             <ImageView
                 android:id="@+id/write_img_right_arrow"
                 android:layout_width="wrap_content"
