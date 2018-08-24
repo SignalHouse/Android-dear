@@ -32,6 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nexters.com.dear.R;
+import nexters.com.dear.util.NickNameGenerator;
 
 public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.register_tool_bar)
@@ -77,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         setToolbar();
+        setNickName();
     }
 
 
@@ -211,5 +213,9 @@ public class RegisterActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("token", token);
         editor.commit();
+    }
+
+    public void setNickName(){
+        editNickname.setText(NickNameGenerator.generate());
     }
 }
