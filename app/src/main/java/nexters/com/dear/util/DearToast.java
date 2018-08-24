@@ -22,7 +22,7 @@ public class DearToast extends Toast {
         View view = LayoutInflater.from(context).inflate(R.layout.dear_toast, null);
         setView(view);
 
-        setGravity(Gravity.BOTTOM, 0, 0);
+        setGravity(Gravity.BOTTOM, 0, 80);
         setDuration(Toast.LENGTH_LONG);
         txtMessage = view.findViewById(R.id.toast_message);
         txtMessage.setText(message);

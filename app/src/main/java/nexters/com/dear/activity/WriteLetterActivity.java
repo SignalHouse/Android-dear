@@ -86,4 +86,5 @@ public class WriteLetterActivity extends AppCompatActivity {
         timer.setTxtView(txtTimer);
         timer.start();
     }
+
 }
