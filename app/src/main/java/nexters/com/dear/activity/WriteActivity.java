@@ -24,6 +24,7 @@ import nexters.com.dear.adapter.WaitingLetterAdapter;
 import nexters.com.dear.app.DearApp;
 import nexters.com.dear.model.LetterItem;
 import nexters.com.dear.util.DateCountDownTimer;
+import nexters.com.dear.widget.LinedEditText;
 
 public class WriteActivity extends AppCompatActivity {
     @BindView(R.id.write_recycler_waiting_letters)
@@ -46,7 +47,10 @@ public class WriteActivity extends AppCompatActivity {
     TextView txtComplete;
     @BindView(R.id.layout_write_layout_edit)
     View viewWrite;
-
+    @BindView(R.id.layout_write_fixed_edit_title)
+    TextView txtLetterTitle;
+    @BindView(R.id.layout_write_fixed_edit_contents)
+    LinedEditText txtLetterContents;
 
     ArrayList<LetterItem> letterItems;
     WaitingLetterAdapter waitAdapter;
@@ -98,6 +102,9 @@ public class WriteActivity extends AppCompatActivity {
         btnBase.setVisibility(View.VISIBLE);
 
         btnBase.setImageResource(R.drawable.img_send);
+        txtLetterContents.setFocusable(false);
+        txtLetterTitle.setFocusable(false);
+
     }
 
     @OnClick(R.id.tool_bar_base_go_back)

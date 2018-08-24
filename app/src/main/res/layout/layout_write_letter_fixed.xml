@@ -30,108 +30,12 @@
             android:hint="편지 제목을 입력해주세요."
             android:singleLine="true"
             android:textSize="@dimen/large_dscrp_size"
-            android:focusable="false"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_title" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line2" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line4"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line3" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line5"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line4" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line6"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line5" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line7"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line6" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/layout_write_fixed_edit_line8"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="54dp"-->
-        <!--android:src="@drawable/img_letter_line"-->
-        <!--app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintStart_toStartOf="@+id/layout_Write_fixed_bg"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/layout_write_fixed_edit_line7" />-->
 
 
         <nexters.com.dear.widget.LinedEditText
@@ -146,7 +50,6 @@
             android:hint="어떤 이야기를 하고싶으세요?"
             android:textSize="@dimen/default_dscrp_size"
             android:inputType="textMultiLine"
-            android:focusable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/layout_Write_fixed_bg"
             app:layout_constraintStart_toStartOf="parent"
