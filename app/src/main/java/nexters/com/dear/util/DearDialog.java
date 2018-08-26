@@ -58,7 +58,6 @@ public class DearDialog extends Dialog{
         else if (this.type == DEARDIALOG_DOUBLE_BUTTON){
             layoutSingle.setVisibility(View.GONE);
             layoutDouble.setVisibility(View.VISIBLE);
-
         }
     }
 

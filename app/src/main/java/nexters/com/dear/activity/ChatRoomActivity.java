@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,7 +46,8 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
     TextView btnBlock;
     @BindView(R.id.drawer_report)
     TextView btnReport;
-
+    @BindView(R.id.chat_edit_input)
+    EditText editMessage;
 
     ChatArrayList chatMessages;
     private ChatMessageAdapter chatMessageAdapter;
@@ -64,7 +66,7 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
         Date curTime = Calendar.getInstance().getTime();
         chatMessages = new ChatArrayList();
         int tempMon, tempDay;
-        tempMon = 7; tempDay = 1;
+        tempMon = 1; tempDay = 1;
         for (int i = 0; i < 100; i++){
             Date tempDate = new Date();
             Calendar cal = Calendar.getInstance();
@@ -128,5 +130,15 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
     @Override
     public void CancelListener() {
 
+    }
+
+    @OnClick(R.id.chat_btn_send)
+    void onSendClicked(){
+        ChatMessage message = new ChatMessage("Name", editMessage.getText().toString(), Calendar.getInstance().getTime());
+        message.setDateDivider(false);
+        chatMessages.add(message);
+
+        chatMessageAdapter.notifyItemInserted(chatMessages.size() - 1);
+        mRecyclerView.scrollToPosition(chatMessages.size() - 1);
     }
 }

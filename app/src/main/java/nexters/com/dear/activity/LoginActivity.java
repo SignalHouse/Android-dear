@@ -35,6 +35,7 @@ import nexters.com.dear.Retrofit.Response.ResponseToken;
 import nexters.com.dear.Retrofit.RetroCallBack;
 import nexters.com.dear.Retrofit.RetroClient;
 import nexters.com.dear.app.DearApp;
+import nexters.com.dear.util.DearToast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -105,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable t) {
                 Log.d("Login Result", "Error");
+                DearToast.makeText(getApplicationContext(), "비밀번호와 아이디를 확인해주세요.").show();
             }
 
             @Override
@@ -119,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int code) {
+                DearToast.makeText(getApplicationContext(), "서버와의 연결을 실패했습니다.").show();
                 Log.d("Login Result", "Failed");
             }
         });

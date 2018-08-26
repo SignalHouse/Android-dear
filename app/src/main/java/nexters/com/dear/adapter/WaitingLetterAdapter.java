@@ -88,6 +88,7 @@ public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdap
                 public void OKListener() {
                     letterItems.remove(getLayoutPosition());
                     notifyItemRemoved(getLayoutPosition());
+                    DearToast.makeText(mContext, "편지가 삭제됐습니다.").show();
                 }
 
                 @Override
