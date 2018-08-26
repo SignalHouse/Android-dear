@@ -55,9 +55,16 @@ public class RegisterActivity extends AppCompatActivity {
     View viewRegister;
     @BindView(R.id.register_edit_nick_name)
     EditText editNickname;
+    @BindView(R.id.register_edit_pw)
+    EditText editPW;
+    @BindView(R.id.register_edit_pw_confirm)
+    EditText editPWConfirm;
+    @BindView(R.id.register_edit_email)
+    EditText editEmail;
+    @BindView(R.id.register_edit_nick_name)
+    EditText getEditNickname;
 
 
-    EditText inputEmail, inputNickname, inputPassword;
     String email, nickname, password;
     Button btnRegister;
     boolean isOK = false;
@@ -69,9 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         ButterKnife.bind(this);
-        inputEmail = (EditText) findViewById(R.id.register_edit_email);
-        inputNickname = (EditText) findViewById(R.id.register_edit_nick_name);
-        inputPassword = (EditText) findViewById(R.id.register_edit_pw);
+
 
         btnRegister = (Button) findViewById(R.id.register_btn_sign_in);
 
@@ -92,36 +97,41 @@ public class RegisterActivity extends AppCompatActivity {
 
     @OnClick(R.id.register_btn_sign_in)
     void onSignInClicked(){
-        HashMap<String, Object> parameters = new HashMap<>();
-        email = inputEmail.getText().toString();
-        nickname = inputNickname.getText().toString();
-        password = inputPassword.getText().toString();
+        if (editPW.getText().toString().equals(editPWConfirm.getText().toString())){
+            HashMap<String, Object> parameters = new HashMap<>();
+            email = editEmail.getText().toString();
+            nickname = editNickname.getText().toString();
+            password = editPW.getText().toString();
 
-        parameters.put("name", nickname);
-        parameters.put("email", email);
-        parameters.put("password", password);
+            parameters.put("name", nickname);
+            parameters.put("email", email);
+            parameters.put("password", password);
 
-        retroClient.postRegister(parameters, new RetroCallBack() {
-            @Override
-            public void onError(Throwable t) {
-                Log.d("Login Result", "Error");
-            }
+            retroClient.postRegister(parameters, new RetroCallBack() {
+                @Override
+                public void onError(Throwable t) {
+                    Log.d("Login Result", "Error");
+                }
 
-            @Override
-            public void onSuccess(int code, Object receivedData) {
-                Log.d("Login Result", "Success");
-                ResponseToken responseToken = (ResponseToken) receivedData;
-                setToken(responseToken.token);
+                @Override
+                public void onSuccess(int code, Object receivedData) {
+                    Log.d("Login Result", "Success");
+                    ResponseToken responseToken = (ResponseToken) receivedData;
+                    setToken(responseToken.token);
 
-                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(i);
-            }
+                    Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
 
-            @Override
-            public void onFailure(int code) {
-                Log.d("Login Result", "Failed");
-            }
-        });
+                @Override
+                public void onFailure(int code) {
+                    Log.d("Login Result", "Failed");
+                }
+            });
+        }
+        else{
+            DearToast.makeText(this, "패스워드가 일치하지 않습니다.").show();
+        }
     }
 
     private void setToolbar(){

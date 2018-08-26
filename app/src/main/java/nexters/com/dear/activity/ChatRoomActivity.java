@@ -132,12 +132,13 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
 
     }
 
-    @OnClick(R.id.chat_btn_send)
+    @OnClick({R.id.chat_btn_send, R.id.chat_layout_bottom})
     void onSendClicked(){
         ChatMessage message = new ChatMessage("Name", editMessage.getText().toString(), Calendar.getInstance().getTime());
         message.setDateDivider(false);
         chatMessages.add(message);
 
+        editMessage.setText("");
         chatMessageAdapter.notifyItemInserted(chatMessages.size() - 1);
         mRecyclerView.scrollToPosition(chatMessages.size() - 1);
     }
