@@ -150,6 +150,4 @@ public class WriteLetterActivity extends AppCompatActivity {
         timer.start();
     }
 
-
-
 }

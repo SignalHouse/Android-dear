@@ -73,7 +73,7 @@ public class WriteActivity extends AppCompatActivity {
             LetterItem letterItem = new LetterItem("Title" + i, "Someone" + i, curDate, i);
             letterItems.add(letterItem);
         }
-        waitAdapter = new WaitingLetterAdapter(letterItems);
+        waitAdapter = new WaitingLetterAdapter(WriteActivity.this ,letterItems);
         mRecyclerView.setAdapter(waitAdapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.HORIZONTAL, false));

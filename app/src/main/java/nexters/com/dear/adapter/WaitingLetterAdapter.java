@@ -1,5 +1,6 @@
 package nexters.com.dear.adapter;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -15,15 +16,21 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
+import nexters.com.dear.app.DearApp;
 import nexters.com.dear.model.LetterItem;
+import nexters.com.dear.util.DearDialog;
+import nexters.com.dear.util.DearDialogListener;
+import nexters.com.dear.util.DearToast;
 import nexters.com.dear.util.TimeUtil;
 
 public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdapter.waitingViewHolder> {
     ArrayList<LetterItem> letterItems;
-
-    public WaitingLetterAdapter(ArrayList<LetterItem> letterItems) {
+    Context mContext;
+    public WaitingLetterAdapter(Context context, ArrayList<LetterItem> letterItems) {
         this.letterItems = letterItems;
+        this.mContext = context;
     }
 
     @NonNull
@@ -71,8 +78,28 @@ public class WaitingLetterAdapter extends RecyclerView.Adapter<WaitingLetterAdap
         View viewLayout;
         public waitingViewHolder(View itemView) {
             super(itemView);
-
             ButterKnife.bind(this, itemView);
+
+        }
+        @OnClick(R.id.template_waiting_btn_delete)
+        void onDeleteClicked(){
+            DearDialog dialog = new DearDialog(mContext, new DearDialogListener() {
+                @Override
+                public void OKListener() {
+                    letterItems.remove(getLayoutPosition());
+                    notifyItemRemoved(getLayoutPosition());
+                }
+
+                @Override
+                public void CancelListener() {
+
+                }
+            }, "정말 삭제하시겠어요?", DearDialog.DEARDIALOG_DOUBLE_BUTTON);
+            dialog.show();
+        }
+        @OnClick(R.id.template_waiting_btn_edit)
+        void onEditClicked(){
+            DearToast.makeText(DearApp.getAppInstance().getApplicationContext(), "Edit clicked").show();
         }
     }
 }
