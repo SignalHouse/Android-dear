@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.HashMap;
 
-import nexters.com.dear.Retrofit.Request.RequestLogin;
 import nexters.com.dear.Retrofit.Response.ResponseToken;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,8 +44,8 @@ public class RetroClient {
     }
 
 
-    public void postLogin(HashMap<String, Object> parameters, final RetroCallBack callback){
-        apiService.postLogin(parameters).enqueue(new Callback<ResponseToken>() {
+    public void postRegister(HashMap<String, Object> parameters, final RetroCallBack callback){
+        apiService.postRegister(parameters).enqueue(new Callback<ResponseToken>() {
             @Override
             public void onResponse(Call<ResponseToken> call, Response<ResponseToken> response) {
                 if (response.isSuccessful()){
@@ -60,6 +59,25 @@ public class RetroClient {
             @Override
             public void onFailure(Call<ResponseToken> call, Throwable t) {
                     callback.onError(t);
+            }
+        });
+    }
+
+    public void postLogin(HashMap<String, Object> parameters, final RetroCallBack callBack){
+        apiService.postLogin(parameters).enqueue(new Callback<ResponseToken>() {
+            @Override
+            public void onResponse(Call<ResponseToken> call, Response<ResponseToken> response) {
+                if (response.isSuccessful()){
+                    callBack.onSuccess(response.code(), response.body());
+                }
+                else{
+                    callBack.onFailure(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseToken> call, Throwable t) {
+                callBack.onError(t);
             }
         });
     }

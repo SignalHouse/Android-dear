@@ -26,8 +26,14 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import nexters.com.dear.R;
+import nexters.com.dear.Retrofit.Response.ResponseToken;
+import nexters.com.dear.Retrofit.RetroCallBack;
+import nexters.com.dear.Retrofit.RetroClient;
 import nexters.com.dear.app.DearApp;
 
 public class LoginActivity extends AppCompatActivity {
@@ -36,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView tvToRegister, tvFindPassword;
     String email, password;
     Button btnToSignIn;
+
+    RetroClient retroClient;
     boolean isOK = false;
 
     @Override
@@ -51,14 +59,18 @@ public class LoginActivity extends AppCompatActivity {
         tvToRegister = (TextView) findViewById(R.id.login_txt_register);
         btnToSignIn = (Button) findViewById(R.id.login_btn_sign_in);
 
-        btnToSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email = inputEmail.getText().toString();
-                password = inputPassword.getText().toString();
-                new LoginActivity.login().execute(getString(R.string.auth_server_url)+"/api/user/login");
-            }
-        });
+
+
+//        btnToSignIn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                email = inputEmail.getText().toString();
+//                password = inputPassword.getText().toString();
+////                new LoginActivity.login().execute(getString(R.string.auth_server_url)+"/api/user/login");
+////                retroClient.postLogin();
+//
+//            }
+//        });
 
         tvFindPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +87,39 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent (LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
 
+            }
+        });
+        retroClient = RetroClient.getInstance(this).createBaseApi();
+        ButterKnife.bind(this);
+    }
+    @OnClick(R.id.login_btn_sign_in)
+    void onSignInClicked(){
+        HashMap<String, Object> parameters = new HashMap<>();
+        parameters.put("email", inputEmail.getText().toString());
+        parameters.put("password", inputPassword.getText().toString());
+
+//        email = inputEmail.getText().toString();
+//        password = inputPassword.getText().toString();
+//        new LoginActivity.login().execute(getString(R.string.auth_server_url) + "/api/user/login");
+        retroClient.postLogin(parameters, new RetroCallBack() {
+            @Override
+            public void onError(Throwable t) {
+                Log.d("Login Result", "Error");
+            }
+
+            @Override
+            public void onSuccess(int code, Object receivedData) {
+                Log.d("Login Result", "Success");
+                ResponseToken responseToken = (ResponseToken) receivedData;
+                setToken(responseToken.token);
+
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onFailure(int code) {
+                Log.d("Login Result", "Failed");
             }
         });
     }
@@ -195,7 +240,6 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         DearApp.getAppInstance().setToken(token);
-        Log.d("token", token);
         editor.putString("token", token);
         editor.commit();
     }
