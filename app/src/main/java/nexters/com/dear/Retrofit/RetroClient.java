@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.HashMap;
 
+import nexters.com.dear.Retrofit.Response.ResponseMessage;
 import nexters.com.dear.Retrofit.Response.ResponseToken;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,6 +78,25 @@ public class RetroClient {
 
             @Override
             public void onFailure(Call<ResponseToken> call, Throwable t) {
+                callBack.onError(t);
+            }
+        });
+    }
+
+    public void postMessage(String token, String message, final RetroCallBack callBack){
+        apiService.postMessage(token, message).enqueue(new Callback<ResponseMessage>() {
+            @Override
+            public void onResponse(Call<ResponseMessage> call, Response<ResponseMessage> response) {
+                if (response.isSuccessful()){
+                    callBack.onSuccess(response.code(), response.body());
+                }
+                else{
+                    callBack.onFailure(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseMessage> call, Throwable t) {
                 callBack.onError(t);
             }
         });
