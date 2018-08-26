@@ -27,11 +27,16 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nexters.com.dear.R;
+import nexters.com.dear.Retrofit.RetroCallBack;
+import nexters.com.dear.Retrofit.RetroClient;
+import nexters.com.dear.app.DearApp;
+import nexters.com.dear.util.DearToast;
 import nexters.com.dear.util.NickNameGenerator;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -56,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
     boolean isOK = false;
 
+    RetroClient retroClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.register_edit_pw);
 
         btnRegister = (Button) findViewById(R.id.register_btn_sign_in);
+
+        retroClient = RetroClient.getInstance(this).createBaseApi();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +89,34 @@ public class RegisterActivity extends AppCompatActivity {
         setNickName();
     }
 
-
+//    @OnClick(R.id.register_btn_sign_in)
+//    void onSignInClicked(){
+//        HashMap<String, Object> parameters = new HashMap<>();
+//        email = inputEmail.getText().toString();
+//        nickname = inputNickname.getText().toString();
+//        password = inputPassword.getText().toString();
+//
+//        parameters.put("name", nickname);
+//        parameters.put("email", email);
+//        parameters.put("password", password);
+//
+//        retroClient.postLogin(parameters, new RetroCallBack() {
+//            @Override
+//            public void onError(Throwable t) {
+//                DearToast.makeText(RegisterActivity.this, "Error");
+//            }
+//
+//            @Override
+//            public void onSuccess(int code, Object receivedData) {
+//                DearToast.makeText(RegisterActivity.this, "Success");
+//            }
+//
+//            @Override
+//            public void onFailure(int code) {
+//                DearToast.makeText(RegisterActivity.this, "Failed");
+//            }
+//        });
+//    }
     private void setToolbar(){
         setSupportActionBar(toolbar);
         txtTitle.setText("Sign Up");
@@ -122,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 //JSONObject를 만들고 key value 형식으로 값을 저장
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id","t");
+//                jsonObject.accumulate("id","t");
                 jsonObject.accumulate("name", nickname);
                 jsonObject.accumulate("email",email);
                 jsonObject.accumulate("password",password);
@@ -211,6 +246,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void setToken(String token) {
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
+        DearApp.getAppInstance().setToken(token);
         editor.putString("token", token);
         editor.commit();
     }

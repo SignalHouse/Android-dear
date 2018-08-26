@@ -28,6 +28,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import nexters.com.dear.R;
+import nexters.com.dear.app.DearApp;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -193,6 +194,8 @@ public class LoginActivity extends AppCompatActivity {
     public void setToken(String token) {
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
+        DearApp.getAppInstance().setToken(token);
+        Log.d("token", token);
         editor.putString("token", token);
         editor.commit();
     }

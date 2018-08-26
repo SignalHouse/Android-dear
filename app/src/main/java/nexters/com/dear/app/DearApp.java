@@ -7,6 +7,7 @@ public class DearApp extends Application {
     private static int SEND_HR = 22;
     private static int SEND_MIN = 0;
     private static int SEND_SEC = 0;
+    private static String token;
 
     public static DearApp getAppInstance(){return instance;}
     public int getSEND_HR() {
@@ -19,6 +20,14 @@ public class DearApp extends Application {
 
     public int getSEND_MIN() {
         return SEND_MIN;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        DearApp.token = token;
     }
 
     @Override
