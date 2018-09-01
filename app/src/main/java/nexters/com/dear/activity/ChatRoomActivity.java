@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -182,7 +181,27 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
 //                    } catch (JSONException e){
 //                        return;
 //                    }
-                    String message = args[0].toString();
+                    JSONObject data = null;
+                    String message = null;
+                    try{
+                        data = (JSONObject) args[0];
+                    } catch(ClassCastException e){
+                        e.printStackTrace();
+                        message = args[0].toString();
+                    }
+                    if (message == null){
+                        try {
+                            message = data.getString("content");
+                            ChatMessage msg = new ChatMessage("Listened", message, Calendar.getInstance().getTime());
+                            msg.setDateDivider(false);
+                            msg.setAlignment(ChatMessage.ALIGNMENT_LEFT);
+                            chatMessages.add(msg);
+                            chatMessageAdapter.notifyItemInserted(chatMessages.size() - 1);
+                            mRecyclerView.scrollToPosition(chatMessages.size() - 1);
+
+                        }catch (JSONException e){return;}
+                    }
+
 
                     Log.d("Message Listened", message);
                 }
