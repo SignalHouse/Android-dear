@@ -61,8 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText editPWConfirm;
     @BindView(R.id.register_edit_email)
     EditText editEmail;
-    @BindView(R.id.register_edit_nick_name)
-    EditText getEditNickname;
+
 
 
     String email, nickname, password;

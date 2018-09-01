@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements DearDialogListene
             if (i % 5 == 0) letter.setNew(false);
             letterItems.add(letter);
         }
-        letterAdapter = new LetterViewAdapter(letterItems);
+        letterAdapter = new LetterViewAdapter(this ,letterItems);
         mRecyclerView.setAdapter(letterAdapter);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);

@@ -1,5 +1,7 @@
 package nexters.com.dear.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,13 +17,16 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 import nexters.com.dear.R;
+import nexters.com.dear.activity.ChatRoomActivity;
 import nexters.com.dear.model.LetterItem;
 
 public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.letterViewHolder>{
     private ArrayList<LetterItem> letterItems;
-
-    public LetterViewAdapter(ArrayList<LetterItem> letterItems) {
+    private Context mContext;
+    public LetterViewAdapter(Context mContext,ArrayList<LetterItem> letterItems) {
+        this.mContext = mContext;
         this.letterItems = letterItems;
     }
 
@@ -40,13 +45,10 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
         holder.txtTitle.setText(letterItems.get(position).getTitle());
 
         if (letterItems.get(position).isCheckVisible())
-//            holder.letterCheck.setVisibility(View.VISIBLE);
             holder.letterCheck.animate().alpha(1);
         else
-//            holder.letterCheck.setVisibility(View.GONE);
             holder.letterCheck.animate().alpha(0);
         holder.letterCheck.setChecked(letterItems.get(position).isSelected());
-
 
         if (letterItems.get(position).isNew()) {
             holder.openedLetter.setVisibility(View.VISIBLE);
@@ -90,5 +92,14 @@ public class LetterViewAdapter extends RecyclerView.Adapter<LetterViewAdapter.le
             ButterKnife.bind(this, itemView);
 
         }
+
+        @OnClick({R.id.template_opened_letter, R.id.template_not_openend_letter})
+        void onOpenedClicked(){
+            Intent i = new Intent(itemView.getContext(), ChatRoomActivity.class);
+            letterItems.get(getLayoutPosition()).setNew(true);
+            notifyItemChanged(getLayoutPosition());
+            mContext.startActivity(i);
+        }
+
     }
 }
