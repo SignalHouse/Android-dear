@@ -36,7 +36,8 @@
         android:layout_alignParentBottom="true"
         android:background="@color/buttonColor"
         android:textColor="#ffffff"
-        android:textSize="21dp"
-        android:text="SKIP"
+        android:text="Skip"
+        android:fontFamily="@font/prata_regular"
+        android:textAllCaps="false"
         />
 </RelativeLayout>

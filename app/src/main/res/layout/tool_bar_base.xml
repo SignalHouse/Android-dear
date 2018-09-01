@@ -33,6 +33,7 @@
             android:layout_marginLeft="15dp"
             android:text="TITLE OF TOOLBAR"
             android:textSize="20dp"
+            android:fontFamily="@font/prata_regular"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

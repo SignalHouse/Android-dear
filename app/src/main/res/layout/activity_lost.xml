@@ -83,6 +83,8 @@
         android:background="@color/buttonColor"
         android:textColor="#ffffff"
         android:text="Send"
+        android:fontFamily="@font/prata_regular"
+        android:textAllCaps="false"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"

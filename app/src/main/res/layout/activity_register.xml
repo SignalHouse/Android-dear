@@ -141,6 +141,8 @@
             android:background="@color/buttonColor"
             android:textColor="#ffffff"
             android:text="Sign In"
+            android:textAllCaps="false"
+            android:fontFamily="@font/prata_regular"
             android:layout_marginTop="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

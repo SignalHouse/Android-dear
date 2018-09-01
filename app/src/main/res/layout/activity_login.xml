@@ -78,6 +78,8 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="Sign in"
+        android:textAllCaps="false"
+        android:fontFamily="@font/prata_regular"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
