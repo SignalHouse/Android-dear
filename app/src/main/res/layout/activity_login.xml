@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_txt_id"
         app:layout_constraintVertical_bias="0" />
 
+
     <TextView
         android:id="@+id/login_txt_find_pw"
         android:layout_width="wrap_content"
@@ -69,7 +70,24 @@
         app:layout_constraintTop_toBottomOf="@+id/login_txt_pw"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintVertical_bias="0"/>
-    
+
+    <TextView
+        android:id="@+id/login_txt_login_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_side_long"
+        android:text="kjl"
+        android:textColor="#ff0000"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/login_txt_find_pw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_txt_pw" />
+
     <Button
         android:id="@+id/login_btn_sign_in"
         android:layout_width="match_parent"

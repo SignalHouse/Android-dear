@@ -14,7 +14,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RetroApiService {
-    final String BAES_URL =  "http://172.30.1.55";
+    final String BAES_URL =  "http://192.168.1.33";
 
     @FormUrlEncoded
     @POST("/api/user")

@@ -6,12 +6,21 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,10 +29,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nexters.com.dear.R;
 import nexters.com.dear.adapter.ChatMessageAdapter;
+import nexters.com.dear.app.DearApp;
 import nexters.com.dear.model.ChatMessage;
 import nexters.com.dear.util.ChatArrayList;
 import nexters.com.dear.util.DearDialog;
 import nexters.com.dear.util.DearDialogListener;
+import nexters.com.dear.util.Util;
 
 public class ChatRoomActivity extends AppCompatActivity implements DearDialogListener{
     @BindView(R.id.chat_recycler_view)
@@ -50,6 +61,12 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
     EditText editMessage;
 
     ChatArrayList chatMessages;
+    private Socket mSocket;
+    {
+        try{
+            mSocket = IO.socket(Util.CHAT_SERVER_URL);
+        }catch (URISyntaxException e){}
+    }
     private ChatMessageAdapter chatMessageAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +77,13 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
 
         setChatView();
         setToolbar();
+        DearApp app = (DearApp) getApplication();
+
+
+
+        mSocket.connect();
+        mSocket.on("message", onNewMessage);
+        mSocket.emit("connect", "hi");
     }
 
     private void setChatView(){
@@ -141,5 +165,30 @@ public class ChatRoomActivity extends AppCompatActivity implements DearDialogLis
         editMessage.setText("");
         chatMessageAdapter.notifyItemInserted(chatMessages.size() - 1);
         mRecyclerView.scrollToPosition(chatMessages.size() - 1);
+
+        mSocket.emit("message", message.getContents());
     }
+
+    private Emitter.Listener onNewMessage = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+//                    JSONObject data = (JSONObject) args[0];
+//                    String message;
+//                    try{
+//                        message = data.getString("message");
+//                    } catch (JSONException e){
+//                        return;
+//                    }
+                    String message = args[0].toString();
+
+                    Log.d("Message Listened", message);
+                }
+            });
+        }
+    };
+
+
 }
